@@ -1,0 +1,41 @@
+.banner-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 60px 0;
+    position: relative;
+}
+
+.banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.experience-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.motto {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.lawyer-name {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.logo-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.logo-container img {
+    height: 50px;
+} 

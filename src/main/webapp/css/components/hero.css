@@ -1,0 +1,293 @@
+.hero-section {
+    font-family: 'MaruBuriBold', sans-serif;
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-gradient-hero);
+}
+
+.hero-content {
+    padding-left: 20%;
+    padding-top: 35vh;
+    text-align: left;
+    color: var(--text-white);
+}
+
+.hero-title, .hero-subtitle, .lawyer-name {
+    background: linear-gradient(to right, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    opacity: 0;
+    animation: fadeInLeft 1s ease forwards;
+}
+
+.hero-subtitle {
+    font-size: 2rem;
+    opacity: 0;
+    animation: fadeInRight 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.lawyer-name {
+    font-size: 3.8rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 2.2s;
+}
+
+.lawyer-image-container {
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.lawyer-profile-img {
+    height: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.logo-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 3.1s;
+}
+
+.logo-container img {
+    height: 60px;
+    object-fit: contain;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color-dark);
+    transform: scale(1.05);
+}
+
+@media (max-width: 991px) {
+    .hero-section {
+        min-height: auto;
+        padding: 80px 0;
+        background: linear-gradient(to bottom, #333333, #666666);
+    }
+
+    .hero-content {
+        padding: 2rem 15px;
+        text-align: center;
+        order: 1;
+    }
+
+    .lawyer-image-container {
+        height: auto;
+        min-height: 50vh;
+        max-height: 70vh;
+        position: relative;
+        order: 2;
+        margin-top: -50px;
+    }
+
+    .lawyer-profile-img {
+        position: relative;
+        height: auto;
+        max-height: 65vh;
+        width: auto;
+        max-width: 90%;
+        margin: 0 auto;
+        display: block;
+        right: auto;
+        bottom: auto;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .lawyer-name {
+        font-size: 2.5rem;
+    }
+
+    .logo-container {
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .subtitle-line {
+        display: block;
+    }
+    
+    .hero-subtitle {
+        font-size: 2rem;
+        line-height: 1.8;
+    }
+
+    .logo-container img {
+        height: 40px;
+    }
+} 
+
+/* Desktop Layout */
+.desktop-layout {
+    display: flex;
+    align-items: center;
+}
+
+.hero-images {
+    position: relative;
+    height: 100%;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.profile-backdrop {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 320px;
+    height: 320px;
+    background: rgba(26, 35, 126, 0.1);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logos-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.logo-image {
+    height: 60px;
+    width: auto;
+}
+
+/* Mobile Layout */
+.mobile-layout {
+    display: none;
+}
+
+.mobile-profile-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.mobile-logo {
+    height: 50px;
+    width: auto;
+}
+
+@media (max-width: 991px) {
+    .desktop-layout {
+        display: none;
+    }
+
+    .mobile-layout {
+        display: flex;
+    }
+    
+    .profile-image-wrapper {
+        margin: 0 auto;
+    }
+    
+    .profile-image-wrapper img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .profile-backdrop {
+        width: 270px;
+        height: 270px;
+    }
+    
+    .logo-image {
+        height: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    #hero {
+        padding: 60px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .subtitle-line {
+        font-size: 1.2rem;
+        padding: 0 15px;
+    }
+    
+    .profile-image-wrapper img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .profile-backdrop {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+    
+    .logos-wrapper {
+        gap: 2rem !important;
+    }
+}
+
+/* 추가 안전장치 */
+.position-relative {
+    position: relative !important;
+}
+
+.z-index-top {
+    z-index: 10 !important;
+}
+
+.hero-section {
+    position: relative;
+    background-attachment: scroll !important;
+}

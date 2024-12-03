@@ -1,0 +1,103 @@
+body {
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.error-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.error-content {
+    max-width: 42rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.error-box {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(4px);
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.error-box h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.error-message {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.error-code {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.error-code p {
+    margin: 0.5rem 0;
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.375rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.company-info {
+    margin-top: 4rem;
+}
+
+.company-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.company-logo {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.company-text {
+    text-align: center;
+}
+
+.company-name {
+    font-weight: 500;
+    margin: 0;
+}
+
+.company-type {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0.25rem 0 0 0;
+}

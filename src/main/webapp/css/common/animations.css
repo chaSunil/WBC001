@@ -1,0 +1,51 @@
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 애니메이션 클래스 */
+.fade-in-left {
+    animation: fadeInLeft 1s ease forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 1s ease forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* 애니메이션 딜레이 유틸리티 클래스 */
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 1.3s; }
+.delay-3 { animation-delay: 2.2s; }
+.delay-4 { animation-delay: 3.1s; } 

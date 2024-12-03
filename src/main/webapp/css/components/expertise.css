@@ -1,0 +1,54 @@
+.expertise-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/images/배경.jpg');
+}
+
+.expertise-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+    padding: var(--card-padding);
+    transition: var(--transition-default);
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.expertise-card h4 {
+    color: var(--text-white);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.expertise-item span {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+@media (max-width: 576px) {
+    .icon-circle {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    .expertise-card h4 {
+        font-size: 1.5rem !important;
+    }
+    
+    .expertise-item span {
+        font-size: 1rem !important;
+    }
+} 

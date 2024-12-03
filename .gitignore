@@ -1,0 +1,31 @@
+# 설정 파일
+# application.properties
+# application.yml
+# application-*.properties
+# application-*.yml
+
+# 로그 파일
+*.log
+logs/
+
+# 개인정보가 포함된 이미지
+# /src/main/resources/static/images/고객*.jpg
+# /src/main/resources/static/images/싸인.png
+
+# IDE 관련
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# 빌드 결과물
+target/
+build/
+bin/
+out/
+
+# 환경 설정
+.env
+.env.*

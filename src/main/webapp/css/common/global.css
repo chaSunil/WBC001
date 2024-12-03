@@ -1,0 +1,70 @@
+section {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.base-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.input-group-text, 
+.form-control, 
+.email-domain {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.input-group-text:focus,
+.form-control:focus,
+.email-domain:focus {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: none !important;
+    color: white !important;
+}
+
+.preview-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.section-divider {
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.about-section, .expertise-section, #blog, #contact {
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), url('/images/배경.jpg') center/cover no-repeat fixed;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .preview-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .about-section, .expertise-section, #blog, #contact {
+        background-attachment: scroll;
+    }
+} 

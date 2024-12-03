@@ -1,0 +1,1078 @@
+/* ==========================================================================
+   1. 기본 설정 및 변수
+   ========================================================================== */
+:root {
+  --primary-color: #1a237e;
+  --primary-gradient: linear-gradient(135deg, #1a237e, #3949ab);
+  --text-light: rgba(255, 255, 255, 0.7);
+  --text-lighter: rgba(255, 255, 255, 0.5);
+  --bg-overlay: rgba(255, 255, 255, 0.05);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --transition-base: all 0.3s ease;
+}
+
+/* 폰트 설정 */
+@font-face {
+    font-family: 'MaruBuriBold';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.eot?#iefix) format("embedded-opentype"),
+         url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff2) format("woff2"),
+         url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff) format("woff"),
+         url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 기본 스타일 */
+body {
+    font-family: 'GmarketSansMedium';
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. 공통 컴포넌트
+   ========================================================================== */
+/* 카드 기본 스타일 */
+.base-card {
+    background: var(--bg-overlay);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    transition: var(--transition-base);
+}
+
+/* 버튼 스타일 */
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    height: 45px;
+    font-weight: 600;
+    transition: var(--transition-base);
+}
+
+.btn-primary:hover {
+    background-color: #283593;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-light:hover {
+    background-color: #1a237e;
+    border-color: #1a237e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* 입력 필드 스타일 */
+.form-control {
+    background: var(--bg-overlay) !important;
+    border: 1px solid var(--border-light) !important;
+    color: white !important;
+    height: 45px;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   3. 레이아웃
+   ========================================================================== */
+.container-fluid {
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+section .container {
+    max-width: 1400px !important;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* 섹션 공통 스타일 */
+.section-divider {
+    width: 60px;
+    height: 4px;
+    background: #1a237e;
+    margin-bottom: 40px;
+}
+
+/* 섹션 헤더 공통 스타일 */
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-header h6 {
+    font-family: 'GmarketSansMedium';
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9) !important;
+}
+
+.section-header h2 {
+    font-family: 'MaruBuriBold';
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+/* 배경 그라디언트 공통 스타일 */
+.bg-gradient {
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), 
+                url('/images/배경.jpg') center/cover no-repeat fixed;
+}
+
+/* ==========================================================================
+   4. 애니메이션
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { 
+        transform: translateY(0) translateX(-50%); 
+    }
+    40% { 
+        transform: translateY(-10px) translateX(-50%); 
+    }
+    60% { 
+        transform: translateY(-5px) translateX(-50%); 
+    }
+}
+
+@keyframes lineGrow {
+    from {
+        height: 0;
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        height: 70%;
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+}
+
+/* ==========================================================================
+   5. 섹션별 스타일
+   ========================================================================== */
+/* 히어로 섹션 */
+.hero-section {
+    font-family: 'MaruBuriBold', sans-serif;
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #333333, #666666);
+}
+
+.hero-content {
+    padding-left: 20%;
+    padding-top: 35vh;
+    text-align: left;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out;
+}
+
+.hero-content.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-title, .hero-subtitle, .lawyer-name {
+    background: linear-gradient(to right, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lawyer-image-container {
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.lawyer-profile-img {
+    height: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* ==========================================================================
+   6. 유틸리티 클래스
+   ========================================================================== */
+.hover-effect {
+    transition: var(--transition-base);
+}
+
+.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.z-index-top {
+    z-index: 10 !important;
+}
+
+.divider {
+    width: 60px;
+    height: 4px;
+    background: #1a237e;
+    margin-bottom: 40px;
+}
+
+.subtitle-line {
+    position: relative;
+    padding-left: 20px;
+}
+
+.subtitle-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 3px;
+    height: 0;
+    background-color: #1a237e;
+    animation: lineGrow 0.6s ease-out forwards;
+}
+
+.logo-image {
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+    filter: brightness(0) invert(1) drop-shadow(0 5px 15px rgba(255,255,255,0.3));
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.scroll-down i {
+    animation: bounce 2s infinite;
+}
+
+/* ==========================================================================
+   7. 미디어 쿼리
+   ========================================================================== */
+@media (max-width: 1200px) {
+    section .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 991px) {
+    section .container {
+        max-width: 720px;
+    }
+    
+    .hero-section {
+        min-height: auto;
+        padding: 80px 0;
+        background: linear-gradient(to bottom, #333333, #666666);
+    }
+
+    .hero-content {
+        padding: 2rem 15px;
+        text-align: center;
+        order: 1;
+    }
+
+    .lawyer-image-container {
+        height: auto;
+        min-height: 50vh;
+        max-height: 70vh;
+        position: relative;
+        order: 2;
+        margin-top: -50px;
+    }
+
+    .lawyer-profile-img {
+        position: relative;
+        height: auto;
+        max-height: 65vh;
+        width: auto;
+        max-width: 90%;
+        margin: 0 auto;
+        display: block;
+        right: auto;
+        bottom: auto;
+    }
+
+    .desktop-layout {
+        display: none;
+    }
+
+    .mobile-layout {
+        display: flex;
+        padding: 120px 0 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    section .container {
+        max-width: 540px;
+    }
+    
+    .base-card {
+        padding: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .lawyer-name {
+        font-size: 2.8rem;
+    }
+
+    .mobile-profile-image {
+        width: 300px;
+        height: auto;
+    }
+
+    .mobile-logo {
+        width: 200px;
+        margin: 0 3px;
+    }
+
+    .mobile-logos {
+        gap: 0.3rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .lawyer-image-container {
+        min-height: 40vh;
+        margin-top: -30px;
+    }
+
+    .lawyer-profile-img {
+        max-height: 55vh;
+    }
+
+    .mobile-profile-image {
+        max-width: 240px;
+    }
+
+    h1.text-white {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .lead.text-white {
+        font-size: 1.2rem;
+        margin-bottom: 1.8rem;
+        padding: 0 10px;
+    }
+
+    .mobile-logos img {
+        height: 40px;
+    }
+}
+
+/* ==========================================================================
+   8. 네비게이션
+   ========================================================================== */
+#mainNav {
+    padding: 1rem 0;
+    transition: var(--transition-base);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 100vw;
+    left: 0;
+    right: 0;
+}
+
+#mainNav.navbar-shrink {
+    padding: 0.5rem 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-family: 'MaruBuriBold';
+    font-size: 1.5rem;
+    color: #fff;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    opacity: 1 !important;
+    transform: translateY(-1px);
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-family: 'GmarketSansMedium';
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    margin: 0 0.5rem;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: var(--transition-base);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    color: #fff !important;
+    transform: translateY(-1px);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   9. 히어로 섹션 상세
+   ========================================================================== */
+.hero-title {
+    font-size: 2.1rem;
+    opacity: 0;
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.3s;
+    font-weight: 900;
+}
+
+.hero-subtitle {
+    font-size: 2.3rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+.lawyer-name {
+    font-size: 3.8rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 2.2s;
+}
+
+.logo-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 3.1s;
+}
+
+.logo-container img {
+    height: 60px;
+    object-fit: contain;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.profile-image-wrapper {
+    max-width: 300px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.profile-backdrop {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle at center, rgba(26, 35, 126, 0.2), transparent);
+    filter: blur(20px);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   10. 프로필 및 경력 섹션
+   ========================================================================== */
+.about-section {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-card img {
+    width: 100%;
+    max-width: 320px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-card img:hover {
+    transform: scale(1.02);
+}
+
+.career-list, .greeting-box {
+    height: 100%;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.career-list h2, .greeting-box h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2rem;
+    position: relative;
+    margin-top: 2rem;
+    height: 40px;
+    line-height: 40px;
+}
+
+.career-items {
+    margin-top: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+    margin-top: -2rem;
+}
+
+.career-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1.25rem;
+    border-left: 3px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.career-item:hover {
+    border-left-color: #1a237e;
+    transform: translateX(5px);
+}
+
+.signature-box {
+    margin-top: auto;
+    width: 100%;
+}
+
+.signature-box .d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.signature-box img {
+    height: 50px;
+    margin-left: -15px;
+}
+
+/* ==========================================================================
+   11. 전문분야 섹션
+   ========================================================================== */
+.expertise-section {
+    padding: 6rem 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.expertise-card {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(26, 35, 126, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.case-count {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.count-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.count-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.expertise-item {
+    background: rgba(26, 35, 126, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.expertise-item:hover {
+    background: rgba(26, 35, 126, 0.2);
+    transform: translateX(5px);
+}
+
+/* ==========================================================================
+   12. 고객후기 섹션
+   ========================================================================== */
+.testimonials-section {
+    padding: 100px 0;
+}
+
+.testimonials-content {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 3rem;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+    margin: 1rem;
+}
+
+.testimonials-content:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.review-profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.review-preview-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    min-height: 150px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.review-preview-box:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+#reviewCarousel {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
+    position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background: rgba(26, 35, 126, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    opacity: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   13. 상담예약 섹션
+   ========================================================================== */
+.consultation-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.85)) fixed,
+                url('/images/배경.jpg') center/cover no-repeat fixed;
+    padding: 100px 0;
+}
+
+.consultation-form {
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--card-shadow);
+    min-height: 608px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-label {
+    min-width: 80px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.input-container {
+    flex: 1;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.phone-select {
+    width: 100px !important;
+}
+
+.phone-input {
+    width: 100px !important;
+}
+
+.email-prefix {
+    flex: 1;
+}
+
+.email-domain {
+    width: 150px !important;
+}
+
+.email-domain-direct {
+    flex: 1;
+    min-width: 150px;
+    display: none;
+}
+
+/* 연락처 정보 카드 */
+.contact-info-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.business-hours {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   14. 푸터 섹션
+   ========================================================================== */
+footer {
+    background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.98));
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-3px);
+}
+
+.footer .hover-effect {
+    transition: all 0.3s ease;
+}
+
+.footer .hover-effect:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   15. 고정 버튼 및 기타 요소
+   ========================================================================== */
+.fixed-btn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 0;
+}
+
+.fixed-btn img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.kakao-btn {
+    right: 90px;
+    bottom: 20px;
+}
+
+.phone-btn {
+    right: 20px;
+    bottom: 20px;
+}
+
+/* FAQ 아코디언 스타일 */
+.faq-section {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5rem 0;
+    position: relative;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    padding: 1.5rem 2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.faq-answer {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.faq-answer.active {
+    padding: 1.5rem 2rem;
+    max-height: 500px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 모달 스타일 */
+.modal-content {
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 로딩 인디케이터 */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid #1a237e;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
