@@ -84,7 +84,7 @@ jobs:
           echo "Running new container..."
           sudo docker run -p ${{ secrets.PORT }}:${{ secrets.PORT }} \
           --name ${{ secrets.PROJECT_NAME }} \
-          --network perfectpro_app-network \
+          --network web001_app-network \
           -d ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
           
           echo "Deployment completed"
