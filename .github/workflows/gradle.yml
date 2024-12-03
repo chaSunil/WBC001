@@ -69,7 +69,7 @@ jobs:
           pwd
           echo "Starting deployment..."
           
-          cd ~/perfectpro
+          cd ~/web001
           
           echo "Stopping existing container..."
           sudo docker kill ${{ secrets.PROJECT_NAME }} || true
