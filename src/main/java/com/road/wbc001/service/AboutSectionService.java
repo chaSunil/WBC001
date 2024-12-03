@@ -1,13 +1,13 @@
-package com.road.perfectpro.service;
+package com.road.wbc001.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.road.perfectpro.repository.AboutSectionRepository;
-import com.road.perfectpro.vo.AboutSection;
-import com.road.perfectpro.vo.Career;
+import com.road.wbc001.repository.AboutSectionRepository;
+import com.road.wbc001.vo.AboutSection;
+import com.road.wbc001.vo.Career;
 
 import java.io.IOException;
 import java.nio.file.Files;

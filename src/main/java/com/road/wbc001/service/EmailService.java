@@ -1,4 +1,4 @@
-package com.road.perfectpro.service;
+package com.road.wbc001.service;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -12,7 +12,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import com.road.perfectpro.dto.ConsultationRequest;
+import com.road.wbc001.dto.ConsultationRequest;
 
 @Service
 @Slf4j

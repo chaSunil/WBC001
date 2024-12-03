@@ -5,7 +5,7 @@ services:
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_DATABASE: web001
+      MYSQL_DATABASE: wbc001
     ports:
       - "3306:3306"
     networks:
@@ -15,13 +15,13 @@ services:
 
   app:
     build: .
-    container_name: web001-app
+    container_name: wbc001-app
     ports:
       - "8080:8080"
     depends_on:
       - mysql
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/web001
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/wbc001
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 1234
     networks:

@@ -1,4 +1,4 @@
-package com.road.perfectpro.dto;
+package com.road.wbc001.dto;
 
 import lombok.Data;
 

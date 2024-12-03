@@ -1,4 +1,4 @@
-package com.road.perfectpro.config;
+package com.road.wbc001.config;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;

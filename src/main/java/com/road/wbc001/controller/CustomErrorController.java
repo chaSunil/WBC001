@@ -1,4 +1,4 @@
-package com.road.perfectpro.controller;
+package com.road.wbc001.controller;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;

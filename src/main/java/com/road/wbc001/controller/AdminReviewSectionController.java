@@ -1,4 +1,4 @@
-package com.road.perfectpro.controller;
+package com.road.wbc001.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.road.perfectpro.service.ReviewSectionService;
-import com.road.perfectpro.vo.ReviewSection;
+import com.road.wbc001.service.ReviewSectionService;
+import com.road.wbc001.vo.ReviewSection;
 
 @Slf4j
 @Controller

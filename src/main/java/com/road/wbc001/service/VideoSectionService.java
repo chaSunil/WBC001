@@ -1,11 +1,12 @@
-package com.road.perfectpro.service;
+package com.road.wbc001.service;
 
-import com.road.perfectpro.vo.Video;
-import com.road.perfectpro.vo.VideoSection;
-import com.road.perfectpro.repository.VideoSectionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.road.wbc001.repository.VideoSectionRepository;
+import com.road.wbc001.vo.Video;
+import com.road.wbc001.vo.VideoSection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

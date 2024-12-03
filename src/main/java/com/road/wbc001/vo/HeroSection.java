@@ -1,4 +1,4 @@
-package com.road.perfectpro.vo;
+package com.road.wbc001.vo;
 
 import java.time.LocalDateTime;
 import jakarta.persistence.Column;

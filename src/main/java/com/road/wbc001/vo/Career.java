@@ -1,4 +1,4 @@
-package com.road.perfectpro.vo;
+package com.road.wbc001.vo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

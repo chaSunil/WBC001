@@ -1,12 +1,12 @@
-package com.road.perfectpro.service;
+package com.road.wbc001.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.road.perfectpro.repository.HeroSectionRepository;
-import com.road.perfectpro.vo.HeroSection;
+import com.road.wbc001.repository.HeroSectionRepository;
+import com.road.wbc001.vo.HeroSection;
 
 import java.time.LocalDateTime;
 import java.io.IOException;

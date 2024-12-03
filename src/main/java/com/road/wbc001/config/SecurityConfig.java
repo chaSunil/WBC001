@@ -1,4 +1,4 @@
-package com.road.perfectpro.config;
+package com.road.wbc001.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

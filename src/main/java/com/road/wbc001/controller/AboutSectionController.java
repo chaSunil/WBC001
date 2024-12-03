@@ -1,4 +1,4 @@
-package com.road.perfectpro.controller;
+package com.road.wbc001.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.road.perfectpro.service.AboutSectionService;
-import com.road.perfectpro.vo.AboutSection;
+import com.road.wbc001.service.AboutSectionService;
+import com.road.wbc001.vo.AboutSection;
 
 @Controller
 @RequestMapping("/admin")

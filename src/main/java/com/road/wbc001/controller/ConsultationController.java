@@ -1,11 +1,11 @@
-package com.road.perfectpro.controller;
+package com.road.wbc001.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.road.perfectpro.dto.ConsultationRequest;
-import com.road.perfectpro.service.EmailService;
+import com.road.wbc001.dto.ConsultationRequest;
+import com.road.wbc001.service.EmailService;
 
 import java.util.Map;
 

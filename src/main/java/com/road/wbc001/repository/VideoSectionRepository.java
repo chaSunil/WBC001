@@ -1,8 +1,9 @@
-package com.road.perfectpro.repository;
+package com.road.wbc001.repository;
 
-import com.road.perfectpro.vo.VideoSection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.road.wbc001.vo.VideoSection;
 
 @Repository
 public interface VideoSectionRepository extends JpaRepository<VideoSection, Long> {

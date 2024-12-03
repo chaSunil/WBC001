@@ -1,12 +1,12 @@
-package com.road.perfectpro.controller;
+package com.road.wbc001.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.road.perfectpro.service.VideoSectionService;
-import com.road.perfectpro.vo.VideoSection;
+import com.road.wbc001.service.VideoSectionService;
+import com.road.wbc001.vo.VideoSection;
 
 import lombok.extern.slf4j.Slf4j;
 

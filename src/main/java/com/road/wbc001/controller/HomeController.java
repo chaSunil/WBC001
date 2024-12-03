@@ -1,18 +1,18 @@
-package com.road.perfectpro.controller;
+package com.road.wbc001.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.road.perfectpro.service.HeroSectionService;
-import com.road.perfectpro.service.AboutSectionService;
-import com.road.perfectpro.service.ReviewSectionService;
-import com.road.perfectpro.service.VideoSectionService;
-import com.road.perfectpro.vo.HeroSection;
-import com.road.perfectpro.vo.AboutSection;
-import com.road.perfectpro.vo.ReviewSection;
-import com.road.perfectpro.vo.VideoSection;
+import com.road.wbc001.service.AboutSectionService;
+import com.road.wbc001.service.HeroSectionService;
+import com.road.wbc001.service.ReviewSectionService;
+import com.road.wbc001.service.VideoSectionService;
+import com.road.wbc001.vo.AboutSection;
+import com.road.wbc001.vo.HeroSection;
+import com.road.wbc001.vo.ReviewSection;
+import com.road.wbc001.vo.VideoSection;
 
 import lombok.extern.slf4j.Slf4j;
 
