@@ -70,6 +70,9 @@ jobs:
           echo "Starting deployment..."
           
           cd ~/wbc001
+
+          echo "Copying and executing data.sql..."
+          docker exec mysql mysql -uroot -p${{ secrets.MYSQL_ROOT_PASSWORD }} wbc001 < src/main/resources/data.sql
           
           echo "Stopping existing container..."
           sudo docker kill ${{ secrets.PROJECT_NAME }} || true
