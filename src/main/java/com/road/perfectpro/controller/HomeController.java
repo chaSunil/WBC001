@@ -5,14 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.road.perfectpro.dto.LawyerProfileDTO;
 import com.road.perfectpro.service.HeroSectionService;
-import com.road.perfectpro.service.AboutSectionService;
+import com.road.perfectpro.service.LawyerProfileService;
 import com.road.perfectpro.service.ReviewSectionService;
 import com.road.perfectpro.service.VideoSectionService;
 import com.road.perfectpro.service.SuccessCaseService;
 import com.road.perfectpro.service.LegalGuideService;
 import com.road.perfectpro.vo.HeroSection;
-import com.road.perfectpro.vo.AboutSection;
 import com.road.perfectpro.vo.ReviewSection;
 import com.road.perfectpro.vo.VideoSection;
 import com.road.perfectpro.vo.SuccessCase;
@@ -28,10 +28,10 @@ public class HomeController {
 
     @Autowired
     private HeroSectionService heroSectionService;
-    
-    @Autowired
-    private AboutSectionService aboutSectionService;
 
+    @Autowired
+    private LawyerProfileService lawyerProfileService;
+    
     @Autowired
     private VideoSectionService videoSectionService;
     
@@ -49,10 +49,10 @@ public class HomeController {
         // 히어로 섹션 데이터
         HeroSection heroSection = heroSectionService.getHeroSection();
         model.addAttribute("heroSection", heroSection);
-        
-        // 어바웃 섹션 데이터
-        AboutSection aboutSection = aboutSectionService.getAboutSection();
-        model.addAttribute("aboutSection", aboutSection);
+
+        // 변호사 프로필 데이터
+        LawyerProfileDTO lawyerProfile = lawyerProfileService.getLawyerProfile();
+        model.addAttribute("lawyerProfile", lawyerProfile);
 
         // 비디오 섹션 데이터
         VideoSection videoSection = videoSectionService.getVideoSection();
