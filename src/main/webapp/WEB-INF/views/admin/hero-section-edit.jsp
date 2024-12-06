@@ -217,7 +217,9 @@
             <a href="/admin/hero-section" class="active">히어로 섹션</a>
             <a href="/admin/about-section">프로필 섹션</a>
             <a href="/admin/video-section">비디오 섹션</a>
+            <a href="/admin/success-cases">성공사례 섹션</a>
             <a href="/admin/reviews">고객후기 섹션</a>
+            <a href="/admin/legal-guides">법률가이드 섹션</a>
         </div>
 
         <h2>히어로 섹션 수정</h2>

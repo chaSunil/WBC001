@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WBC 001 페이지</title>
+    <title>전문 변호사 소개 사이트</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/images/wbclogotab.png">
@@ -479,7 +479,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <span class="badge bg-primary mb-2">2022</span>
-                                                            <p>한국부동산법학회 정회원</p>
+                                                            <p>��국부동산법학회 정회원</p>
                                                             <p>대형 건설사 법률자문 위원</p>
                                                             <p>금융감독원 법률자문단</p>
                                                         </div>
@@ -630,34 +630,31 @@
                                     <span class="count-number" data-count="387">0</span>
                                     <span class="count-text text-white-50 d-block">진행 사건</span>
                                 </div>
-                                <div class="success-rate mb-4">
-                                    <span class="rate-number" data-rate="94.2">0.0%</span>
-                                    <span class="rate-text text-white-50 d-block">승소율</span>
-                                </div>
+
                             </div>
                             <ul class="list-unstyled text-center" style="margin: 0 auto; max-width: 80%;">
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">채권 추심</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 156건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">체계적 진행</small>
                                     </div>
                                 </li>
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">여금 반환</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 98건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전략적 해결</small>
                                     </div>
                                 </li>
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">투자금 회수</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 76건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">맞춤형 접근</small>
                                     </div>
                                 </li>
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">투자금 분쟁</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 57건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전문적 처리</small>
                                     </div>
                                 </li>
                             </ul>
@@ -677,34 +674,31 @@
                                     <span class="count-number" data-count="312">0</span>
                                     <span class="count-text text-white-50 d-block">진행 사건</span>
                                 </div>
-                                <div class="success-rate mb-4">
-                                    <span class="rate-number" data-rate="93.5">0.0%</span>
-                                    <span class="rate-text text-white-50 d-block">승소율</span>
-                                </div>
+
                             </div>
                             <ul class="list-unstyled text-center" style="margin: 0 auto; max-width: 80%;">
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">계약 분쟁</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 123건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전문 자문 제공</small>
                                     </div>
                                 </li>
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">교통사고</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 95건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">체계적 해결</small>
                                     </div>
                                 </li>
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">의료 사고</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 54건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전문적 접근</small>
                                     </div>
                                 </li>
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">명예훼손</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 40건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">신중한 처리</small>
                                     </div>
                                 </li>
                             </ul>
@@ -723,37 +717,68 @@
                                     <span class="count-number" data-count="245">0</span>
                                     <span class="count-text text-white-50 d-block">진행 사건</span>
                                 </div>
-                                <div class="success-rate mb-4">
-                                    <span class="rate-number" data-rate="92.8">0.0%</span>
-                                    <span class="rate-text text-white-50 d-block">승소율</span>
-                                </div>
+
                             </div>
                             <ul class="list-unstyled text-center" style="margin: 0 auto; max-width: 80%;">
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">임대차 분쟁</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 89건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">체계적 해결</small>
                                     </div>
                                 </li>
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">도급 소송</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 67건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전문적 대응</small>
                                     </div>
                                 </li>
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">건축 분쟁</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 52건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">분석적 접근</small>
                                     </div>
                                 </li>
                                 <li class="mb-4 text-white">
                                     <div class="expertise-item">
                                         <span style="font-size: 1.2rem; opacity: 0.9;">재건축/재개발</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">진행사건 37건</small>
+                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전략적 자문</small>
                                     </div>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="expertise-card h-100">
+                            <div class="text-center mb-5">
+                                <div class="icon-circle mb-4">
+                                    <img src="/images/금전.png" alt="금전 소송">
+                                </div>
+                                <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">금전 소송</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 손해배상 청구 카드 -->
+                    <div class="col-md-4">
+                        <div class="expertise-card h-100">
+                            <div class="text-center mb-5">
+                                <div class="icon-circle mb-4">
+                                    <img src="/images/손해배상.png" alt="손해배상 청구">
+                                </div>
+                                <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">손해배상 청구</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="expertise-card h-100">
+                            <div class="text-center mb-5">
+                                <div class="icon-circle mb-4">
+                                    <img src="/images/부동산.png" alt="부동산 소송">
+                                </div>
+                                <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">부동산 소송</h4>
+                            </div>
                         </div>
                     </div>
 
@@ -818,220 +843,47 @@
                     </div>
                 </div>
             
-            <!-- 성공 사례 카드 -->
-            <div class="row g-4 mb-5">
-                <!-- 사례 1 -->
-                <div class="col-md-4">
-                    <div class="case-card h-100" 
-                         style="background: rgba(255, 255, 255, 0.05);
-                                backdrop-filter: blur(10px);
-                                border: 1px solid rgba(255, 255, 255, 0.1);
-                                border-radius: 20px;
-                                padding: 30px;
-                                transition: all 0.3s ease;">
-                        <div class="case-badge mb-3">
-                            <span class="badge" 
-                                  style="background-color: #4CAF50;
-                                         padding: 8px 15px;
-                                         font-size: 0.9rem;">승소</span>
-                            <span class="badge" 
-                                  style="background-color: #1a237e;
-                                         padding: 8px 15px;
-                                         font-size: 0.9rem;">부동산</span>
-                        </div>
-                        <div class="case-image-container mb-4" style="height: 200px; overflow: hidden; border-radius: 10px;">
-                            <img src="/images/case1.jpg" 
-                                 alt="부동산 승소사례" 
-                                 style="width: 100%; 
-                                        height: 100%; 
-                                        object-fit: cover; 
-                                        object-position: center;">
-                        </div>
-                        <h5 class="text-white mb-3" style="font-size: 1.4rem;">임대차보금 반환 청구 승소</h5>
-                        <p class="text-white-50 mb-4" style="font-size: 1.1rem;">임대인의 보증금 반환 거부에 대해 적극 대응하여 전액 승소 판결을 이어냈습니다.</p>
-                        <div class="case-info">
-                            <div class="info-item text-white-50 mb-2">
-                                <i class="fas fa-gavel me-2"></i>
-                                <span>승소금: 3억원</span>
-                            </div>
-                            <div class="info-item text-white-50">
-                                <i class="fas fa-calendar me-2"></i>
-                                <span>소요기간: 6개월</span>
+                <!-- 성공 사례 카드 -->
+                <div class="row g-4 mb-5">
+                    <c:forEach items="${successCases}" var="successCase">
+                        <div class="col-md-4">
+                            <div class="case-card h-100" 
+                                style="background: rgba(255, 255, 255, 0.05);
+                                        backdrop-filter: blur(10px);
+                                        border: 1px solid rgba(255, 255, 255, 0.1);
+                                        border-radius: 20px;
+                                        padding: 30px;
+                                        transition: all 0.3s ease;">
+                                <!-- 이미지 컨테이너 추가 -->
+                                <div class="case-image mb-4" style="height: 200px; overflow: hidden; border-radius: 10px;">
+                                    <img src="${successCase.imageUrl}" 
+                                         alt="${successCase.title}" 
+                                         style="width: 100%; 
+                                                height: 100%; 
+                                                object-fit: cover;">
+                                </div>
+                                
+                                <div class="case-badge mb-3">
+                                    <c:forEach items="${successCase.categories}" var="category">
+                                        <span class="badge" style="background-color: #4CAF50;">${category}</span>
+                                    </c:forEach>
+                                </div>
+                                <h5 class="text-white mb-3" style="font-size: 1.4rem;">${successCase.title}</h5>
+                                <p class="text-white-50 mb-4" style="font-size: 1.1rem;">${successCase.content}</p>
+                                <div class="case-info">
+                                    <div class="info-item text-white-50 mb-2">
+                                        <i class="fas fa-check-circle me-2"></i>
+                                        <span>${successCase.resultTitle}</span>
+                                    </div>
+                                    <div class="info-item text-white-50">
+                                        <i class="fas fa-trophy me-2"></i>
+                                        <span>${successCase.resultContent}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
                 </div>
-                
-                <!-- 사례 2 -->
-                <div class="col-md-4">
-                    <div class="case-card h-100" 
-                         style="background: rgba(255, 255, 255, 0.05);
-                                backdrop-filter: blur(10px);
-                                border: 1px solid rgba(255, 255, 255, 0.1);
-                                border-radius: 20px;
-                                padding: 30px;
-                                transition: all 0.3s ease;">
-                        <div class="case-badge mb-3">
-                            <span class="badge" 
-                                  style="background-color: #4CAF50;
-                                         padding: 8px 15px;
-                                         font-size: 0.9rem;">승소</span>
-                            <span class="badge" 
-                                  style="background-color: #1a237e;
-                                         padding: 8px 15px;
-                                         font-size: 0.9rem;">손상</span>
-                        </div>
-                        <div class="case-image-container mb-4" style="height: 200px; overflow: hidden; border-radius: 10px;">
-                            <img src="/images/case2.jpg" 
-                                 alt="교���사고 손해배상" 
-                                 style="width: 100%; 
-                                        height: 100%; 
-                                        object-fit: cover; 
-                                        object-position: center;">
-                        </div>
-                        <h5 class="text-white mb-3" style="font-size: 1.4rem;">교통사고 손해배상 청구</h5>
-                        <p class="text-white-50 mb-4" style="font-size: 1.1rem;">험사의 부당한 보상액 산정에 대해 적극 대응하여 정당한 상을 받아냈습니다.</p>
-                        <div class="case-info">
-                            <div class="info-item text-white-50 mb-2">
-                                <i class="fas fa-gavel me-2"></i>
-                                <span>승소금액: 1억 5천만원</span>
-                            </div>
-                            <div class="info-item text-white-50">
-                                <i class="fas fa-calendar me-2"></i>
-                                <span>소요기간: 8개월</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 사례 3 -->
-                <div class="col-md-4">
-                    <div class="case-card h-100" 
-                         style="background: rgba(255, 255, 255, 0.05);
-                                backdrop-filter: blur(10px);
-                                border: 1px solid rgba(255, 255, 255, 0.1);
-                                border-radius: 20px;
-                                padding: 30px;
-                                transition: all 0.3s ease;">
-                        <div class="case-badge mb-3">
-                            <span class="badge" 
-                                  style="background-color: #4CAF50;
-                                         padding: 8px 15px;
-                                         font-size: 0.9rem;">승소</span>
-                            <span class="badge" 
-                                  style="background-color: #1a237e;
-                                         padding: 8px 15px;
-                                         font-size: 0.9rem;">금전</span>
-                        </div>
-                        <div class="case-image-container mb-4" style="height: 200px; overflow: hidden; border-radius: 10px;">
-                            <img src="/images/case3.jpg" 
-                                 alt="변호사 승소사례" 
-                                 style="width: 100%; 
-                                        height: 100%; 
-                                        object-fit: cover; 
-                                        object-position: center;">
-                        </div>
-                        <h5 class="text-white mb-3" style="font-size: 1.4rem;">승소사례</h5>
-                        <p class="text-white-50 mb-4" style="font-size: 1.1rem;">변호사님의 승소사례를 기재할 수 있는 공간입니다.
-                            더 자세한 사례는 해당 승소사례에 링크를 걸어둘 수 있습니다.
-                        </p>
-                        <div class="case-info">
-                            <div class="info-item text-white-50 mb-2">
-                                <i class="fas fa-gavel me-2"></i>
-                                <span>승소금액: 2억원</span>
-                            </div>
-                            <div class="info-item text-white-50">
-                                <i class="fas fa-calendar me-2"></i>
-                                <span>소요기간: 12개월</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 사례 4 -->
-                <div class="col-md-4">
-                    <div class="case-card h-100" 
-                            style="background: rgba(255, 255, 255, 0.05);
-                                backdrop-filter: blur(10px);
-                                border: 1px solid rgba(255, 255, 255, 0.1);
-                                border-radius: 20px;
-                                padding: 30px;
-                                transition: all 0.3s ease;">
-                        <div class="case-badge mb-3">
-                            <span class="badge" 
-                                    style="background-color: #4CAF50;
-                                            padding: 8px 15px;
-                                            font-size: 0.9rem;">승소</span>
-                            <span class="badge" 
-                                    style="background-color: #1a237e;
-                                            padding: 8px 15px;
-                                            font-size: 0.9rem;">금전</span>
-                        </div>
-                        <div class="case-image-container mb-4" style="height: 200px; overflow: hidden; border-radius: 10px;">
-                            <img src="/images/case4.jpg" 
-                                 alt="변호사 승소사례" 
-                                 style="width: 100%; 
-                                        height: 100%; 
-                                        object-fit: cover; 
-                                        object-position: center;">
-                        </div>
-                        <h5 class="text-white mb-3" style="font-size: 1.4rem;">승소사례</h5>
-                        <p class="text-white-50 mb-4" style="font-size: 1.1rem;">변호사님의 승소사례를 기재할 수 있는 공간입니다.</p>
-                        <div class="case-info">
-                            <div class="info-item text-white-50 mb-2">
-                                <i class="fas fa-gavel me-2"></i>
-                                <span>소금액: 2억원</span>
-                            </div>
-                            <div class="info-item text-white-50">
-                                <i class="fas fa-calendar me-2"></i>
-                                <span>소요기간: 12개월</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 사례 5 -->
-                <div class="col-md-4">
-                    <div class="case-card h-100" 
-                         style="background: rgba(255, 255, 255, 0.05);
-                                backdrop-filter: blur(10px);
-                                border: 1px solid rgba(255, 255, 255, 0.1);
-                                border-radius: 20px;
-                                padding: 30px;
-                                transition: all 0.3s ease;">
-                        <div class="case-badge mb-3">
-                            <span class="badge" 
-                                  style="background-color: #4CAF50;
-                                         padding: 8px 15px;
-                                         font-size: 0.9rem;">승소</span>
-                            <span class="badge" 
-                                  style="background-color: #1a237e;
-                                         padding: 8px 15px;
-                                         font-size: 0.9rem;">금전</span>
-                        </div>
-                        <div class="case-image-container mb-4" style="height: 200px; overflow: hidden; border-radius: 10px;">
-                            <img src="/images/case5.jpg" 
-                                 alt="투자금 사기피해" 
-                                 style="width: 100%; 
-                                        height: 100%; 
-                                        object-fit: cover; 
-                                        object-position: center;">
-                        </div>
-                        <h5 class="text-white mb-3" style="font-size: 1.4rem;">투자금 사기 피해 구제</h5>
-                        <p class="text-white-50 mb-4" style="font-size: 1.1rem;">가상화폐 투자 사기로 인한 피해금액을 전액 회수하는데 성공습니다.</p>
-                        <div class="case-info">
-                            <div class="info-item text-white-50 mb-2">
-                                <i class="fas fa-gavel me-2"></i>
-                                <span>승소금액: 2억원</span>
-                            </div>
-                            <div class="info-item text-white-50">
-                                <i class="fas fa-calendar me-2"></i>
-                                <span>소요기간: 12개월</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- 고객 후기 섹션 -->
             <section class="testimonials-section">
@@ -1122,116 +974,59 @@
             <!-- 최신 법률 정보 -->
             <div class="row mb-5">
                 <div class="col-lg-8 mx-auto">
-                    <div class="latest-news p-5 rounded" 
-                         style="background: rgba(26, 35, 126, 0.15);
-                                backdrop-filter: blur(15px);
-                                border: 1px solid rgba(255, 255, 255, 0.1);
-                                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                                margin-bottom: 50px; /* 하단 마진 증가 */
-                                ">
-                        <span class="badge mb-3" 
-                              style="background-color: #1a237e;
-                                     padding: 8px 15px;
-                                     font-size: 0.9rem;">뉴스</span>
-                        <h4 class="text-white mb-3" 
-                            style="font-size: 1.8rem;">휴젤, 호실적에 소송리스크도 해소…주주환원 정책은</h4>
-                        <p class="text-white-50 mb-4" 
-                           style="font-size: 1.1rem;">이 공간은 주로 변호사님의 활동 영역을 소개하는 공간입니다.
-                           변호사님과 관련된 활동들을 명시해놓고 링크로 연결시켜 놓을 수 있게 만들어 놓은 공간입니다.
-                        </p>
-                        <a href="https://www.bloter.net/news/articleView.html?idxno=626637" class="btn btn-outline-light" target="_blank">자세히 보기</a>
-                    </div>
+                    <c:if test="${highlightedGuide != null}">
+                        <div class="latest-news p-5 rounded" 
+                             style="background: rgba(26, 35, 126, 0.15);
+                                    backdrop-filter: blur(15px);
+                                    border: 1px solid rgba(255, 255, 255, 0.1);
+                                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                                    margin-bottom: 50px;">
+                            <span class="badge mb-3" 
+                                  style="background-color: #1a237e;
+                                         padding: 8px 15px;
+                                         font-size: 0.9rem;">${highlightedGuide.category}</span>
+                            <h4 class="text-white mb-3" 
+                                style="font-size: 1.8rem;">${highlightedGuide.title}</h4>
+                            <p class="text-white-50 mb-4" 
+                               style="font-size: 1.1rem;">${highlightedGuide.content}</p>
+                            <a href="${highlightedGuide.link}" class="btn btn-outline-light" target="_blank">자세히 보기</a>
+                        </div>
+                    </c:if>
                 </div>
             </div>
 
             <!-- 법률 정보 카드 -->
             <div class="row g-4">
-                <!-- 법률 가이드 1 -->
-                <div class="col-md-4">
-                    <a href="https://www.labortoday.co.kr/news/articleView.html?idxno=223242" class="text-decoration-none" target="_blank">
-                        <div class="card h-100 border-0" 
-                             style="background: rgba(255, 255, 255, 0.05);
-                                    backdrop-filter: blur(10px);
-                                    border: 1px solid rgba(255, 255, 255, 0.1);
-                                    transition: all 0.3s ease;">
-                            <div class="card-body p-4">
-                                <div class="category-badge mb-3">
-                                    <span class="badge" 
-                                          style="background-color: #1a237e;
-                                                 padding: 8px 15px;">판례리뷰</span>
-                                </div>
-                                <h5 class="card-title text-white mb-3" 
-                                    style="font-size: 1.4rem;">무등록 건설업자에 하도급한 직상수급인 연대책임 판결</h5>
-                                <p class="card-text2 text-white-50 mb-4" 
-                                   style="font-size: 1.1rem;">건설현장은 발주처가 원도급사(종합건설업체·시공사)에게 건설공사 전체를 발주하면, 원도급사가 각각의 공정에 대해 하도급사(전문건설업체)에게 하도급을 주는 구조로 돼 있다.</p>
-                                <div class="article-meta">
-                                    <small class="text-white-50">
-                                        <i class="fas fa-eye me-2"></i>매일노동뉴스
-                                        <i class="fas fa-calendar ms-3 me-2"></i>2024.01.15
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- 법률 가이드 2 (동일한 스타 적용) -->
-                <div class="col-md-4">
-                    <a href="https://www.labortoday.co.kr/news/articleView.html?idxno=224805" class="text-decoration-none" target="_blank">
-                        <div class="card h-100 border-0" 
-                            style="background: rgba(255, 255, 255, 0.05);
-                                    backdrop-filter: blur(10px);
-                                    border: 1px solid rgba(255, 255, 255, 0.1);
-                                    transition: all 0.3s ease;">
-                            <div class="card-body p-4">
-                                <div class="category-badge mb-3">
-                                    <span class="badge" 
-                                        style="background-color: #1a237e;
-                                                padding: 8px 15px;">판리뷰</span>
-                                </div>
-                                <h5 class="card-title text-white mb-3" 
-                                    style="font-size: 1.4rem;">통상임금 소송 참여자에 대한 차별을 부당노동위로 본 판결</h5>
-                                <p class="card-text2 text-white-50 mb-4" 
-                                style="font-size: 1.1rem;">전국금속노동조합은 2006년 12월께 한국지엠 소상공인 사무직원들을 대상으로 통상임금 소송 참가자를 모집했다.</p>
-                                <div class="article-meta">
-                                    <small class="text-white-50">
-                                        <i class="fas fa-eye me-2"></i>매일노동뉴스
-                                        <i class="fas fa-calendar ms-3 me-2"></i>2024.01.10
-                                    </small>
+                <c:forEach items="${legalGuides}" var="guide">
+                    <div class="col-md-4">
+                        <a href="${guide.link}" class="text-decoration-none" target="_blank">
+                            <div class="card h-100 border-0" 
+                                 style="background: rgba(255, 255, 255, 0.05);
+                                        backdrop-filter: blur(10px);
+                                        border: 1px solid rgba(255, 255, 255, 0.1);
+                                        transition: all 0.3s ease;">
+                                <div class="card-body p-4">
+                                    <div class="category-badge mb-3">
+                                        <span class="badge" 
+                                              style="background-color: #1a237e;
+                                                     padding: 8px 15px;">${guide.category}</span>
+                                    </div>
+                                    <h5 class="card-title text-white mb-3" 
+                                        style="font-size: 1.4rem;">${guide.title}</h5>
+                                    <p class="card-text2 text-white-50 mb-4" 
+                                       style="font-size: 1.1rem;">${guide.content}</p>
+                                    <div class="article-meta">
+                                        <small class="text-white-50">
+                                            <i class="fas fa-eye me-2"></i>${guide.source}
+                                            <i class="fas fa-calendar ms-3 me-2"></i>
+                                            ${guide.date.year}.${String.format('%02d', guide.date.monthValue)}.${String.format('%02d', guide.date.dayOfMonth)}
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- 법률 가이드 3 (동일한 스타일 적용) -->
-                <div class="col-md-4">
-                    <a href="https://www.labortoday.co.kr/news/articleView.html?idxno=221911" class="text-decoration-none" target="_blank">
-                        <div class="card h-100 border-0" 
-                            style="background: rgba(255, 255, 255, 0.05);
-                                    backdrop-filter: blur(10px);
-                                    border: 1px solid rgba(255, 255, 255, 0.1);
-                                    transition: all 0.3s ease;">
-                            <div class="card-body p-4">
-                                <div class="category-badge mb-3">
-                                    <span class="badge" 
-                                        style="background-color: #1a237e;
-                                                padding: 8px 15px;">판례리뷰</span>
-                                </div>
-                                <h5 class="card-title text-white mb-3" 
-                                    style="font-size: 1.4rem;">코로나19 시기 항공사 정리해고가 정당하다는 판결에 대해</h5>
-                                <p class="card-text2 text-white-50 mb-4" 
-                                style="font-size: 1.1rem;">이스타항공 주식회사는 2020년 10월14일에 605명의 노동자를 정리해고했다.</p>
-                                <div class="article-meta">
-                                    <small class="text-white-50">
-                                        <i class="fas fa-eye me-2"></i>매일노동뉴스
-                                        <i class="fas fa-calendar ms-3 me-2"></i>2024.06.05
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                </c:forEach>
             </div>
         </div>
     </section>
