@@ -35,68 +35,51 @@ public class HeroSectionService {
                 .orElseGet(() -> new HeroSection());
             
         // 기본값으로 리셋
-        heroSection.setTitle("민사변호사 전문 50년 경력");
-        heroSection.setSubtitleLine1("\"내 일\"이라고 생각하고");
-        heroSection.setSubtitleLine2("\"내 일\"처럼 하겠습니다.");
-        heroSection.setLawyerName("강진태 변호사");
-        heroSection.setProfileImage("/images/통일감.png");
+        heroSection.setSubtitle("\"내 일\"이라고 생각하고 \"내 일\"처럼 하겠습니다.");
+        heroSection.setLawyerName("최선 변호사");
+        heroSection.setProfileImage("/images/변호사.png");
         heroSection.setUniversityLogo("/images/대학로고투명.png");
         heroSection.setCompanyLogo("/images/회사로고.png");
         
         return heroSectionRepository.save(heroSection);
     }
 
-    private HeroSection createDefaultHeroSection() {
-        HeroSection heroSection = new HeroSection();
-        return heroSectionRepository.save(heroSection);
-    }
-
     @Transactional
-    public void updateHeroSection(HeroSection heroSection) {
+    public void updateHeroSection(HeroSection heroSection, 
+                                MultipartFile profileImage,
+                                MultipartFile universityLogo,
+                                MultipartFile companyLogo) {
         HeroSection existingSection = heroSectionRepository.findById(heroSection.getId())
                 .orElseThrow(() -> new RuntimeException("히어로 섹션을 찾을 수 없습니다."));
         
-        // 텍스트 필드만 업데이트
-        existingSection.setTitle(heroSection.getTitle());
-        existingSection.setSubtitleLine1(heroSection.getSubtitleLine1());
-        existingSection.setSubtitleLine2(heroSection.getSubtitleLine2());
+        // 텍스트 필드 업데이트
+        existingSection.setSubtitle(heroSection.getSubtitle());
         existingSection.setLawyerName(heroSection.getLawyerName());
         existingSection.setUpdatedAt(LocalDateTime.now());
         
-        // 이미지 필드는 유지
-        heroSectionRepository.save(existingSection);
-    }
-
-    
-    public HeroSection updateHeroImages(Long id, MultipartFile profileImage, 
-                                      MultipartFile universityLogo, 
-                                      MultipartFile companyLogo) {
-        HeroSection heroSection = heroSectionRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Hero section not found"));
-            
-        // 이미지가 제공된 경우에만 업데이트
+        // 이미지 업데이��
         if (profileImage != null && !profileImage.isEmpty()) {
             String profileImagePath = saveImage(profileImage);
             if (profileImagePath != null) {
-                heroSection.setProfileImage(profileImagePath);
+                existingSection.setProfileImage(profileImagePath);
             }
         }
         
         if (universityLogo != null && !universityLogo.isEmpty()) {
             String universityLogoPath = saveImage(universityLogo);
             if (universityLogoPath != null) {
-                heroSection.setUniversityLogo(universityLogoPath);
+                existingSection.setUniversityLogo(universityLogoPath);
             }
         }
         
         if (companyLogo != null && !companyLogo.isEmpty()) {
             String companyLogoPath = saveImage(companyLogo);
             if (companyLogoPath != null) {
-                heroSection.setCompanyLogo(companyLogoPath);
+                existingSection.setCompanyLogo(companyLogoPath);
             }
         }
         
-        return heroSectionRepository.save(heroSection);
+        heroSectionRepository.save(existingSection);
     }
     
     private String saveImage(MultipartFile file) {

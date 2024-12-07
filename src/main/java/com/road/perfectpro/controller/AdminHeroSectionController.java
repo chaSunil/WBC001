@@ -26,19 +26,18 @@ public class AdminHeroSectionController {
     @PostMapping("/hero-section")
     public String updateHeroSection(
             @RequestParam("id") Long id,
-            @RequestParam("title") String title,
-            @RequestParam("subtitleLine1") String subtitleLine1,
-            @RequestParam("subtitleLine2") String subtitleLine2,
-            @RequestParam("lawyerName") String lawyerName) {
+            @RequestParam("subtitle") String subtitle,
+            @RequestParam("lawyerName") String lawyerName,
+            @RequestParam(value = "profileImage", required = false) MultipartFile profileImage,
+            @RequestParam(value = "universityLogo", required = false) MultipartFile universityLogo,
+            @RequestParam(value = "companyLogo", required = false) MultipartFile companyLogo) {
         
         HeroSection heroSection = new HeroSection();
         heroSection.setId(id);
-        heroSection.setTitle(title);
-        heroSection.setSubtitleLine1(subtitleLine1);
-        heroSection.setSubtitleLine2(subtitleLine2);
+        heroSection.setSubtitle(subtitle);
         heroSection.setLawyerName(lawyerName);
         
-        heroSectionService.updateHeroSection(heroSection);
+        heroSectionService.updateHeroSection(heroSection, profileImage, universityLogo, companyLogo);
         
         return "redirect:/admin/hero-section";
     }
@@ -46,16 +45,6 @@ public class AdminHeroSectionController {
     @PostMapping("/hero-section/reset")
     public String resetToDefault() {
         heroSectionService.resetToDefault();
-        return "redirect:/admin/hero-section";
-    }
-
-    @PostMapping("/hero-section/images")
-    public String updateImages(@RequestParam("id") Long id,
-                             @RequestParam("profileImage") MultipartFile profileImage,
-                             @RequestParam("universityLogo") MultipartFile universityLogo,
-                             @RequestParam("companyLogo") MultipartFile companyLogo) {
-        
-        heroSectionService.updateHeroImages(id, profileImage, universityLogo, companyLogo);
         return "redirect:/admin/hero-section";
     }
 }

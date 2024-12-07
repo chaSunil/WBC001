@@ -20,13 +20,7 @@ public class HeroSection {
     private Long id;
     
     @Column(nullable = false)
-    private String title = "민사변호사 전문 50년 경력";
-    
-    @Column(nullable = false)
-    private String subtitleLine1 = "\"내 일\"이라고 생각하고";
-    
-    @Column(nullable = false)
-    private String subtitleLine2 = "\"내 일\"처럼 하겠습니다.";
+    private String subtitle = "\"내 일\"이라고 생각하고 \"내 일\"처럼 하겠습니다.";
     
     @Column(nullable = false)
     private String lawyerName = "최선 변호사";
