@@ -41,8 +41,8 @@ public class AdminLawyerProfileController {
             @RequestParam("signatureName") String signatureName,
             @RequestParam(value = "profileImage", required = false) MultipartFile profileImage,
             @RequestParam(value = "signatureImage", required = false) MultipartFile signatureImage,
-            @RequestParam(value = "careers[].careerTitle", required = false) List<String> careerTitles,
-            @RequestParam(value = "careers[].period", required = false) List<String> careerPeriods) {
+            @RequestParam(value = "careers", required = false) List<String> careerTitles,
+            @RequestParam(value = "careers", required = false) List<String> careerPeriods) {
         
         // 줄바꿈 문자(\r\n 또는 \n)를 <br> 태그로 변환
         String formattedGreeting = greetingContent.replaceAll("(\r\n|\n)", "<br>");
@@ -50,6 +50,16 @@ public class AdminLawyerProfileController {
         // 기존 프로필 정보 가져오기
         LawyerProfile existingProfile = lawyerProfileService.findById(id);
         
+        List<LawyerCareerDTO> careerDTOs = new ArrayList<>();
+        if (careerTitles != null) {
+            for (int i = 0; i < careerTitles.size(); i += 2) {
+                careerDTOs.add(LawyerCareerDTO.builder()
+                    .careerTitle(careerTitles.get(i))
+                    .period(careerTitles.get(i + 1))
+                    .build());
+            }
+        }
+
         LawyerProfileDTO dto = LawyerProfileDTO.builder()
             .id(id)
             .name(name)
@@ -57,9 +67,9 @@ public class AdminLawyerProfileController {
             .subtitle2(subtitle2)
             .greetingContent(formattedGreeting)
             .signatureName(signatureName)
-            .profileImage(existingProfile.getProfileImage())  // 기존 이미지 경로 유지
-            .signatureImage(existingProfile.getSignatureImage())  // 기존 이미지 경로 유지
-            .careers(createCareerDTOs(careerTitles, careerPeriods))
+            .profileImage(existingProfile.getProfileImage())
+            .signatureImage(existingProfile.getSignatureImage())
+            .careers(careerDTOs)
             .build();
 
         // 새로운 이미지가 업로드된 경우에만 처리
@@ -97,18 +107,5 @@ public class AdminLawyerProfileController {
         } catch (IOException e) {
             throw new RuntimeException("파일 저장 실패: " + e.getMessage());
         }
-    }
-
-    private List<LawyerCareerDTO> createCareerDTOs(List<String> titles, List<String> periods) {
-        List<LawyerCareerDTO> careers = new ArrayList<>();
-        if (titles != null && periods != null) {
-            for (int i = 0; i < titles.size(); i++) {
-                careers.add(LawyerCareerDTO.builder()
-                    .careerTitle(titles.get(i))
-                    .period(periods.get(i))
-                    .build());
-            }
-        }
-        return careers;
     }
 }
