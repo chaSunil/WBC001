@@ -14,6 +14,8 @@ import com.road.perfectpro.vo.CareerCategory;
 
 import java.util.Map;
 import java.util.List;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 @Controller
 @RequestMapping("/admin")
@@ -53,7 +55,8 @@ public class AdminCareerController {
         try {
             String oldName = payload.get("oldTitle");
             String newName = payload.get("newTitle");
-            categoryService.updateCategoryName(oldName, newName);
+            String newIcon = payload.get("newIcon");
+            careerService.updateCategoryTitle(oldName, newName, newIcon);
             return ResponseEntity.ok(Map.of("success", true));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -61,18 +64,17 @@ public class AdminCareerController {
         }
     }
 
-    @DeleteMapping("/careers/category/{id}")
-    @ResponseBody
-    public ResponseEntity<?> deleteCategory(@PathVariable Long id) {
+    // @DeleteMapping 대신 @PostMapping 사용
+    @PostMapping("/careers/category/delete/{categoryId}")
+    public String deleteCategory(@PathVariable("categoryId") Long categoryId) {
         try {
-            categoryService.deleteCategory(id);
-            return ResponseEntity.ok().build();
+            categoryService.deleteCategory(categoryId);
+            return "redirect:/admin/careers";
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                               .body(Map.of("error", e.getMessage()));
+            return "redirect:/admin/careers?error=" + URLEncoder.encode(e.getMessage(), StandardCharsets.UTF_8);
         }
     }
-
+    
     @PostMapping("/careers/{id}")
     public String updateCareer(@PathVariable("id") Long id, @ModelAttribute Career career) {
         careerService.updateCareer(id, career);

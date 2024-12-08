@@ -94,10 +94,11 @@ public class CareerService {
 
     // 카테고리 이름 변경
     @Transactional
-    public void updateCategoryTitle(String oldName, String newName) {
+    public void updateCategoryTitle(String oldName, String newName, String newIcon) {
         CareerCategory category = categoryRepository.findByName(oldName);
         if (category != null) {
             category.setName(newName);
+            category.setIcon(newIcon);
             categoryRepository.save(category);
         }
     }

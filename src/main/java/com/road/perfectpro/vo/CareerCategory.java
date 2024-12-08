@@ -40,6 +40,6 @@ public class CareerCategory {
     @LastModifiedDate
     private LocalDateTime updatedAt;
     
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Career> careers;
 }

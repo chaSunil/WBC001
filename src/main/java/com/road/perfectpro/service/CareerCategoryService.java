@@ -2,7 +2,9 @@ package com.road.perfectpro.service;
 
 import com.road.perfectpro.vo.CareerCategory;
 import com.road.perfectpro.repository.CareerCategoryRepository;
+import com.road.perfectpro.repository.CareerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +15,11 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class CareerCategoryService {
 
-    private final CareerCategoryRepository categoryRepository;
+    @Autowired
+    private CareerCategoryRepository categoryRepository;
+
+    @Autowired
+    private CareerRepository careerRepository;
 
     // 모든 활성화된 카테고리 조회
     public List<CareerCategory> getAllActiveCategories() {
@@ -44,10 +50,13 @@ public class CareerCategoryService {
     // 카테고리 삭제 (비활성화)
     @Transactional
     public void deleteCategory(Long id) {
+        // 카테고리 존재 여부 먼저 확인
         CareerCategory category = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("카테고리를 찾을 수 없습니다: " + id));
-        category.setIsActive(false);
-        categoryRepository.save(category);
+            .orElseThrow(() -> new RuntimeException("카테고리가 존재하지 않습니다: " + id));
+        
+        // 연관된 Career 먼저 삭제 후 카테고리 삭제
+        categoryRepository.deleteCareersByCategoryId(id);
+        categoryRepository.deleteCareerCategoryById(id);
     }
 
     // 카테고리 정보 수정
