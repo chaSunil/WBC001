@@ -6,12 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.road.perfectpro.dto.LawyerProfileDTO;
+import com.road.perfectpro.service.CareerService;
 import com.road.perfectpro.service.HeroSectionService;
 import com.road.perfectpro.service.LawyerProfileService;
 import com.road.perfectpro.service.ReviewSectionService;
 import com.road.perfectpro.service.VideoSectionService;
 import com.road.perfectpro.service.SuccessCaseService;
 import com.road.perfectpro.service.LegalGuideService;
+import com.road.perfectpro.vo.Career;
+import com.road.perfectpro.vo.CareerCategory;
 import com.road.perfectpro.vo.HeroSection;
 import com.road.perfectpro.vo.ReviewSection;
 import com.road.perfectpro.vo.VideoSection;
@@ -20,6 +23,7 @@ import com.road.perfectpro.vo.LegalGuide;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Map;
 import java.util.List;
 
 @Slf4j
@@ -31,6 +35,9 @@ public class HomeController {
 
     @Autowired
     private LawyerProfileService lawyerProfileService;
+
+    @Autowired
+    private CareerService careerService;
     
     @Autowired
     private VideoSectionService videoSectionService;
@@ -53,6 +60,10 @@ public class HomeController {
         // 변호사 프로필 데이터
         LawyerProfileDTO lawyerProfile = lawyerProfileService.getLawyerProfile();
         model.addAttribute("lawyerProfile", lawyerProfile);
+
+        // 경력 데이터 추가
+        Map<CareerCategory, List<Career>> careersByCategory = careerService.getAllCareersForAdmin();
+        model.addAttribute("careersByCategory", careersByCategory);
 
         // 비디오 섹션 데이터
         VideoSection videoSection = videoSectionService.getVideoSection();
