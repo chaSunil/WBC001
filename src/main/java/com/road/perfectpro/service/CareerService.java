@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+@Transactional
 public class CareerService {
 
     private final CareerRepository careerRepository;

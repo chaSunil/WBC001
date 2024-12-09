@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor
 public class VideoSectionService {
     
