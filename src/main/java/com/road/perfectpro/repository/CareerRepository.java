@@ -23,4 +23,7 @@ public interface CareerRepository extends JpaRepository<Career, Long> {
     // 표시 순서 최대값 조회
     @Query("SELECT MAX(c.displayOrder) FROM Career c WHERE c.category = :category")
     Integer findMaxDisplayOrderByCategory(CareerCategory category);
+    
+    @Query("SELECT c FROM Career c JOIN FETCH c.category ORDER BY c.category.displayOrder, c.displayOrder")
+    List<Career> findAllWithCategory();
 }

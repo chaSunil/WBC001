@@ -72,15 +72,13 @@ public class CareerService {
 
     // 관리자용 - 모든 경력을 카테고리별로 그룹화
     public Map<CareerCategory, List<Career>> getAllCareersForAdmin() {
-        List<CareerCategory> categories = categoryRepository.findAll();
-        Map<CareerCategory, List<Career>> careersByCategory = new LinkedHashMap<>();
-        
-        for (CareerCategory category : categories) {
-            List<Career> careers = careerRepository.findByCategoryOrderByDisplayOrderAsc(category);
-            careersByCategory.put(category, careers);
-        }
-        
-        return careersByCategory;
+        List<Career> allCareers = careerRepository.findAllWithCategory();
+        return allCareers.stream()
+            .collect(Collectors.groupingBy(
+                Career::getCategory,
+                LinkedHashMap::new,
+                Collectors.toList()
+            ));
     }
 
     // 활성화 상태 토글
