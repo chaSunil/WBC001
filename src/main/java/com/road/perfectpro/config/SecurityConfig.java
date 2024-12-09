@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.header.writers.XXssProtectionHeaderWriter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import com.road.perfectpro.filter.XssFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -58,7 +60,8 @@ public class SecurityConfig {
                 .frameOptions(frame -> frame.sameOrigin())
                 .httpStrictTransportSecurity(hsts -> hsts
                     .includeSubDomains(true)
-                    .maxAgeInSeconds(31536000))
+                    .maxAgeInSeconds(31536000)
+                    .preload(true))
                 .xssProtection(xss -> xss
                     .headerValue(XXssProtectionHeaderWriter.HeaderValue.ENABLED))
             );
@@ -75,10 +78,19 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         UserDetails user = User.builder()
             .username("admin")
-            .password(passwordEncoder.encode("1234"))
+            .password(passwordEncoder.encode("cha9129"))
             .roles("ADMIN")
             .build();
 
         return new InMemoryUserDetailsManager(user);
+    }
+
+    @Bean
+    public FilterRegistrationBean<XssFilter> xssFilterRegistrationBean() {
+        FilterRegistrationBean<XssFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new XssFilter());
+        registrationBean.setOrder(1); // 필터 순서
+        registrationBean.addUrlPatterns("/*");
+        return registrationBean;
     }
 }
