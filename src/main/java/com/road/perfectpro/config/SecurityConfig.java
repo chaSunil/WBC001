@@ -53,6 +53,7 @@ public class SecurityConfig {
                         "style-src 'self' 'unsafe-inline' https:; " +
                         "img-src 'self' data: https:; " +
                         "font-src 'self' data: https:; " +
+                        "frame-src 'self' https://www.youtube.com https://youtube.com; " +
                         "connect-src 'self' https:;"))
                 .frameOptions(frame -> frame.sameOrigin())
                 .httpStrictTransportSecurity(hsts -> hsts
