@@ -71,9 +71,6 @@ jobs:
           
           cd ~/wbc001
 
-          echo "Copying and executing data.sql..."
-          docker exec mysql mysql -uroot -p${{ secrets.MYSQL_ROOT_PASSWORD }} wbc001 < src/main/resources/data.sql
-          
           echo "Stopping existing container..."
           sudo docker kill ${{ secrets.PROJECT_NAME }} || true
           sudo docker rm -f ${{ secrets.PROJECT_NAME }} || true
@@ -88,6 +85,12 @@ jobs:
           sudo docker run -p ${{ secrets.PORT }}:${{ secrets.PORT }} \
           --name ${{ secrets.PROJECT_NAME }} \
           --network wbc001_app-network \
+          --dns 8.8.8.8 \
+          --dns 1.1.1.1 \
+          --security-opt no-new-privileges=true \
+          --dns-opt ndots:1 \
+          --dns-opt timeout:2 \
+          --dns-opt attempts:5 \
           -d ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
           
           echo "Deployment completed"
