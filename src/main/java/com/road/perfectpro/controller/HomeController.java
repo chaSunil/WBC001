@@ -13,6 +13,7 @@ import com.road.perfectpro.service.ReviewSectionService;
 import com.road.perfectpro.service.VideoSectionService;
 import com.road.perfectpro.service.SuccessCaseService;
 import com.road.perfectpro.service.LegalGuideService;
+import com.road.perfectpro.service.FAQService;
 import com.road.perfectpro.vo.Career;
 import com.road.perfectpro.vo.CareerCategory;
 import com.road.perfectpro.vo.HeroSection;
@@ -20,6 +21,7 @@ import com.road.perfectpro.vo.ReviewSection;
 import com.road.perfectpro.vo.VideoSection;
 import com.road.perfectpro.vo.SuccessCase;
 import com.road.perfectpro.vo.LegalGuide;
+import com.road.perfectpro.vo.FAQ;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,6 +52,9 @@ public class HomeController {
     
     @Autowired
     private LegalGuideService legalGuideService;
+    
+    @Autowired
+    private FAQService faqService;
 
     @GetMapping("/")
     public String home(Model model) {
@@ -82,6 +87,10 @@ public class HomeController {
         List<LegalGuide> activeGuides = legalGuideService.getActiveGuides();
         model.addAttribute("highlightedGuide", highlightedGuide);
         model.addAttribute("legalGuides", activeGuides);
+        
+        // FAQ 데이터 추가
+        List<FAQ> faqs = faqService.getAllFAQs();
+        model.addAttribute("faqs", faqs);
         
         log.info("법률가이드 데이터 로드: 하이라이트={}, 활성화된 가이드 수={}", 
                 highlightedGuide != null ? highlightedGuide.getTitle() : "없음", 
