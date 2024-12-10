@@ -88,7 +88,7 @@ public class AdminCareerController {
     }
 
     @PostMapping("/careers/delete/{id}")
-    public String deleteCareer(@PathVariable Long id) {
+    public String deleteCareer(@PathVariable("id") Long id) {
         careerService.deleteCareer(id);
         return "redirect:/admin/careers";
     }

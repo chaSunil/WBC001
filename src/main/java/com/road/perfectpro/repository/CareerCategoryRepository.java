@@ -24,4 +24,7 @@ public interface CareerCategoryRepository extends JpaRepository<CareerCategory, 
     @Transactional
     @Query("DELETE FROM CareerCategory c WHERE c.id = :id")
     void deleteCareerCategoryById(@Param("id") Long id);
+    
+    @Query("SELECT c FROM CareerCategory c LEFT JOIN FETCH c.careers WHERE c.name = :name")
+    CareerCategory findByNameWithCareers(@Param("name") String name);
 }

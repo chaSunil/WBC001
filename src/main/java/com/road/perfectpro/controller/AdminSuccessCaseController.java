@@ -59,14 +59,16 @@ public class AdminSuccessCaseController {
 
     @PostMapping("/new")
     public String createCase(@ModelAttribute SuccessCase successCase, 
-                           @RequestParam(required = false) MultipartFile imageFile) {
+                           @RequestParam(value = "imageFile", required = false) MultipartFile imageFile) {
         successCaseService.createCase(successCase, imageFile);
         return "redirect:/admin/success-cases";
     }
 
     @PostMapping("/delete/{id}")
-    public String deleteCase(@PathVariable Long id) {
-        // TODO: 삭제 로직 구현 필요
+    public String deleteCase(@PathVariable("id") Long id) {
+        log.info("성공사례 삭제 요청 ID = {}", id);
+        successCaseService.deleteCase(id);
+        log.info("성공사례 삭제 완료");
         return "redirect:/admin/success-cases";
     }
 

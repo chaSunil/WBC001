@@ -43,4 +43,17 @@ public class AdminVideoSectionController {
         videoSectionService.resetToDefault();
         return "redirect:/admin/video-section";
     }
+
+    @PostMapping("/video-section/delete/{id}")
+    public String deleteVideo(@PathVariable("id") Long id) {
+        log.info("비디오 삭제 요청 ID = {}", id);
+        try {
+            videoSectionService.deleteVideo(id);
+            log.info("비디오 삭제 완료");
+            return "redirect:/admin/video-section";
+        } catch (Exception e) {
+            log.error("비디오 삭제 중 오류 발생: ", e);
+            return "redirect:/admin/video-section?error=true";
+        }
+    }
 } 

@@ -23,14 +23,15 @@ public class CareerService {
 
     // 모든 활성화된 경력을 카테고리별로 그룹화하여 조회
     public Map<String, List<Career>> getAllActiveCareersByCategory() {
-        List<Career> allCareers = careerRepository.findByIsActiveTrueOrderByDisplayOrderAsc();
+        List<Career> allCareers = careerRepository.findAllWithCategory();
         return allCareers.stream()
+                .filter(Career::getIsActive)
                 .collect(Collectors.groupingBy(career -> career.getCategory().getName()));
     }
 
     // 특정 카테고리의 경력 목록 조회
     public List<Career> getCareersByCategory(String categoryName) {
-        CareerCategory category = categoryRepository.findByName(categoryName);
+        CareerCategory category = categoryRepository.findByNameWithCareers(categoryName);
         return careerRepository.findByCategoryAndIsActiveTrueOrderByDisplayOrderAsc(category);
     }
 
@@ -47,7 +48,7 @@ public class CareerService {
     // 경력 정보 수정
     @Transactional
     public Career updateCareer(Long id, Career careerDetails) {
-        Career career = careerRepository.findById(id)
+        Career career = careerRepository.findCareerWithCategory(id)
                 .orElseThrow(() -> new RuntimeException("경력 정보를 찾을 수 없습니다: " + id));
         
         career.setCategory(careerDetails.getCategory());
@@ -66,8 +67,7 @@ public class CareerService {
     public void deleteCareer(Long id) {
         Career career = careerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("경력 정보를 찾을 수 없습니다: " + id));
-        career.setIsActive(false);
-        careerRepository.save(career);
+        careerRepository.delete(career);
     }
 
     // 관리자용 - 모든 경력을 카테고리별로 그룹화
@@ -84,7 +84,7 @@ public class CareerService {
     // 활성화 상태 토글
     @Transactional
     public Career toggleCareerActive(Long id) {
-        Career career = careerRepository.findById(id)
+        Career career = careerRepository.findCareerWithCategory(id)
                 .orElseThrow(() -> new RuntimeException("경력 정보를 찾을 수 없습니다: " + id));
         career.setIsActive(!career.getIsActive());
         return careerRepository.save(career);
@@ -93,7 +93,7 @@ public class CareerService {
     // 카테고리 이름 변경
     @Transactional
     public void updateCategoryTitle(String oldName, String newName, String newIcon) {
-        CareerCategory category = categoryRepository.findByName(oldName);
+        CareerCategory category = categoryRepository.findByNameWithCareers(oldName);
         if (category != null) {
             category.setName(newName);
             category.setIcon(newIcon);

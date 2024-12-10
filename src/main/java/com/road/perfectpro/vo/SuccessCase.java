@@ -5,16 +5,19 @@ import lombok.Getter;
 import lombok.Setter;
 import java.util.List;
 import java.util.ArrayList;
+import org.hibernate.annotations.BatchSize;
 
 @Entity
 @Table(name = "success_cases")
 @Getter @Setter
+@BatchSize(size = 100)
 public class SuccessCase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ElementCollection
+    @BatchSize(size = 100)
     @CollectionTable(name = "case_categories", joinColumns = @JoinColumn(name = "case_id"))
     @Column(name = "category")
     private List<String> categories = new ArrayList<>();  // 민사소송, 임대차분쟁 등의 카테고리들

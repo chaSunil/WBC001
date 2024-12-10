@@ -25,7 +25,7 @@ public class SuccessCaseService {
     private final SuccessCaseRepository successCaseRepository;
     
     public List<SuccessCase> getAllActiveCases() {
-        return successCaseRepository.findAllByIsActiveTrueOrderByDisplayOrderAsc();
+        return successCaseRepository.findAllActiveWithCategories();
     }
     
     @Transactional
@@ -78,7 +78,7 @@ public class SuccessCaseService {
 
     @Transactional
     public void updateSuccessCase(SuccessCase updatedCase, MultipartFile imageFile) {
-        SuccessCase existingCase = successCaseRepository.findById(updatedCase.getId())
+        SuccessCase existingCase = successCaseRepository.findByIdWithCategories(updatedCase.getId())
                 .orElseThrow(() -> new RuntimeException("성공사례를 찾을 수 없습니다."));
         
         // 이미지 처리
@@ -128,5 +128,25 @@ public class SuccessCaseService {
         existingCase.setIsActive(updatedCase.getIsActive());
         
         successCaseRepository.save(existingCase);
+    }
+
+    @Transactional
+    public void deleteCase(Long id) {
+        SuccessCase caseToDelete = successCaseRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("삭제할 성공사례를 찾을 수 없습니다. ID: " + id));
+        
+        // 이미지 파일 삭제
+        if (caseToDelete.getImageUrl() != null) {
+            try {
+                String fileName = caseToDelete.getImageUrl().substring(caseToDelete.getImageUrl().lastIndexOf("/") + 1);
+                Path imagePath = Paths.get("src/main/resources/static/images/").resolve(fileName);
+                Files.deleteIfExists(imagePath);
+            } catch (IOException e) {
+                throw new RuntimeException("이미지 파일 삭제 중 오류가 발생했습니다.", e);
+            }
+        }
+        
+        // DB에서 삭제
+        successCaseRepository.deleteById(id);
     }
 }

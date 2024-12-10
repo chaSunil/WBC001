@@ -28,27 +28,40 @@ public class VideoSectionService {
     
     @Transactional
     public void save(VideoSection videoSection) {
-        // 1. 기존 섹션 조회
-        VideoSection existingSection = videoSectionRepository.findById(videoSection.getId())
+        VideoSection existingSection = videoSectionRepository.findByIdWithVideos(videoSection.getId())
                 .orElseGet(() -> createDefaultVideoSection());
         
-        // 2. 기본 정보 업데이트
         existingSection.setMainTitle(videoSection.getMainTitle());
         
-        // 3. 비디오 목록 업데이트
         if (videoSection.getVideos() != null && !videoSection.getVideos().isEmpty()) {
-            // 기존 비디오 연결 해제
-            existingSection.getVideos().forEach(video -> video.setVideoSection(null));
-            existingSection.getVideos().clear();
+            // 삭제되지 않은 기존 비디오 유지
+            existingSection.getVideos().removeIf(video -> 
+                videoSection.getVideos().stream()
+                    .noneMatch(newVideo -> 
+                        newVideo.getId() != null && 
+                        newVideo.getId().equals(video.getId())
+                    )
+            );
             
-            // 새 비디오 설정
-            videoSection.getVideos().forEach(video -> {
-                video.setVideoSection(existingSection);
-                existingSection.getVideos().add(video);
+            // 새 비디오 추가 또는 업데이트
+            videoSection.getVideos().forEach(newVideo -> {
+                if (newVideo.getId() == null) {
+                    newVideo.setVideoSection(existingSection);
+                    existingSection.getVideos().add(newVideo);
+                } else {
+                    existingSection.getVideos().stream()
+                        .filter(video -> video.getId().equals(newVideo.getId()))
+                        .findFirst()
+                        .ifPresent(video -> {
+                            video.setNumber(newVideo.getNumber());
+                            video.setVideoId(newVideo.getVideoId());
+                            video.setTitle(newVideo.getTitle());
+                            video.setDescription(newVideo.getDescription());
+                        });
+                }
             });
         }
         
-        // 4. 저장
         videoSectionRepository.save(existingSection);
     }
     
@@ -99,5 +112,14 @@ public class VideoSectionService {
     public void resetToDefault() {
         videoSectionRepository.deleteAll();
         createDefaultVideoSection();
+    }
+    
+    @Transactional
+    public void deleteVideo(Long videoId) {
+        VideoSection videoSection = videoSectionRepository.findFirstByOrderByIdAsc();
+        if (videoSection != null) {
+            videoSection.getVideos().removeIf(video -> video.getId().equals(videoId));
+            videoSectionRepository.save(videoSection);
+        }
     }
 } 
