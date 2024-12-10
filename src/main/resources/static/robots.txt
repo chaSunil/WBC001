@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://webbusinesscard.co.kr/sitemap.xml

@@ -4,7 +4,7 @@ services:
     image: mysql:8
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: cha9129
       MYSQL_DATABASE: wbc001
     ports:
       - "3306:3306"
@@ -12,6 +12,11 @@ services:
       - app-network
     volumes:
       - mysql-data:/var/lib/mysql
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    security_opt:
+      - no-new-privileges:true
 
   app:
     build: .
@@ -23,9 +28,18 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/wbc001
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 1234
+      SPRING_DATASOURCE_PASSWORD: cha9129
     networks:
       - app-network
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    security_opt:
+      - no-new-privileges:true
+    dns_opt:
+      - ndots:1
+      - timeout:2
+      - attempts:5
 
 volumes:
   mysql-data:
@@ -34,3 +48,6 @@ volumes:
 networks:
   app-network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

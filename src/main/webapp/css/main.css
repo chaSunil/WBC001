@@ -261,19 +261,22 @@ footer h5 {
     margin-bottom: 1.5rem;
 }
 
-footer .social-links a {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    border-radius: 50%;
-    background-color: rgba(255,255,255,0.1);
-    transition: background-color 0.3s;
+footer .social-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-footer .social-links a:hover {
-    background-color: rgba(255,255,255,0.2);
+footer .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+footer .social-links a i {
+    line-height: 1;
 }
 
 /* 반응형 조정 */
@@ -453,7 +456,7 @@ footer .social-links a:hover {
     }
     
     .hero-subtitle {
-        font-size: 2rem; /* 원래 크기 유지 */
+        font-size: 2rem; /* ��래 크기 유지 */
         line-height: 1.8; /* 줄간격만 조정 */
     }
 }
@@ -4688,7 +4691,7 @@ h1.display-4 {
     }
 
     /* 모바일 반응형 */
-    @media (max-width: 768px) {
+    @media (max-width: 768) {
         .philosophy-cards .row {
             flex-direction: column;  /* 모바일에서는 세로로 */
         }
@@ -4703,7 +4706,7 @@ h1.display-4 {
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 768) {
         .education-card, .affiliation-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 30px;
@@ -4772,4 +4775,78 @@ h1.display-4 {
             width: 180px !important;  /* 150px에서 180px로 증가 */
             height: auto;
         }
+    }
+
+    /* 결과 텍스트 색상 변경 */
+    .case-info .info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.8rem;
+    }
+
+    .case-info .info-item i {
+        color: #64B5F6; /* 부드러운 파란색으로 변경 */
+        margin-right: 0.5rem;
+        opacity: 0.9;
+    }
+
+    .case-info .info-item span {
+        color: rgba(255, 255, 255, 0.9); /* 흰색으로 변경하고 약간의 투명도 추가 */
+        font-weight: 500;
+    }
+
+    /* 뱃지 수직 정렬 수정 */
+    .case-badge {
+        display: flex;
+        flex-wrap: wrap;  /* 여러 줄로 나누어 표시 */
+        gap: 0.5rem;  /* 배지 사이 간격 */
+        margin-bottom: 1rem;
+    }
+
+    /* 개별 배지 스타일 */
+    .case-badge .badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        white-space: normal;  /* 텍스트 줄바꿈 허용 */
+        height: auto;
+        line-height: 1.2;
+        background-color: #4CAF50 !important;  /* !important 추가하여 인라인 스타일 덮어쓰기 */
+    }
+
+    /* 모바일 대응 */
+    @media (max-width: 768px) {
+        .case-badge .badge {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    /* 뱃지 색상 변경 */
+    .case-badge .badge:nth-child(1) {
+        background-color: #1E88E5; /* 진한 파란색 */
+    }
+
+    .case-badge .badge:nth-child(2) {
+        background-color: #42A5F5; /* 중간 파란색 */
+    }
+
+    .case-badge .badge:nth-child(3) {
+        background-color: #64B5F6; /* 연한 파란색 */
+    }
+
+    /* 법률 가이드 섹션 스타일 */
+    #blog .row.mb-5 {
+        margin-top: 60px;  /* 상단 여백 추가 */
+    }
+
+    #blog h6.text-primary {
+        margin-bottom: 1.2rem !important;  /* 제목 간격 조정 */
+    }
+
+    #blog h2.display-4 {
+        margin-bottom: 1.5rem !important;  /* 부제목 간격 조정 */
+    }
+
+    #blog .divider {
+        margin-bottom: 3rem !important;  /* 구분선 아래 여백 조정 */
     }

@@ -362,7 +362,7 @@
                     <h5 class="modal-title" id="addCaseModalLabel">새 성공사례 추가</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/admin/success-cases/new" method="post" enctype="multipart/form-data">
+                <form action="/admin/success-cases/add" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group mb-3">
                             <label>사례 이미지</label>
@@ -427,33 +427,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const addCaseForm = document.querySelector('#addCaseModal form');
-            const currentCaseCount = ${successCases.size()}; 
-            
-            // 표시 순서 입력 제한
-            const displayOrderInputs = document.querySelectorAll('input[name="displayOrder"]');
-            displayOrderInputs.forEach(input => {
-                input.addEventListener('change', function() {
-                    const value = parseInt(this.value);
-                    if (value > currentCaseCount) {
-                        alert(`표시 순서는 1부터 ${currentCaseCount}까지만 입력 가능합니다.`);
-                        this.value = Math.min(value, currentCaseCount);
-                    }
-                });
-            });
-
-            // 최대 6개 제한
-            if (addCaseForm) {
-                addCaseForm.addEventListener('submit', function(e) {
-                    if (currentCaseCount >= 6) {
-                        e.preventDefault();
-                        alert('최대 6개의 성공사례만 등록할 수 있습니다.');
-                        return false;
-                    }
-                });
+        function previewImage(input, previewId) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(previewId).src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
             }
-        });
+        }
 
         function deleteCase(id) {
             if (confirm('이 성공사례를 삭제하시겠습니까?')) {
@@ -465,15 +447,25 @@
             }
         }
 
-        function previewImage(input, previewId) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById(previewId).src = e.target.result;
-                }
-                reader.readAsDataURL(input.files[0]);
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        mainContent.addEventListener('click', () => {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
             }
-        }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>

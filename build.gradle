@@ -53,6 +53,7 @@ dependencies {
 	testImplementation 'it.ozimov:embedded-redis:0.7.3'
 	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'
 	implementation 'me.paulschwarz:spring-dotenv:4.0.0'
+	implementation 'org.redisson:redisson-spring-boot-starter:3.17.0'
 }
 
 tasks.named('test') {

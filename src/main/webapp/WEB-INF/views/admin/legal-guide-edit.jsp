@@ -8,280 +8,355 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>법률가이드 관리</title>
     
-    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/wbclogotab.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        @font-face {
-            font-family: 'GmarketSansMedium';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        :root {
+            --sidebar-width: 280px;
         }
 
         body {
-            font-family: 'GmarketSansMedium', sans-serif;
-            background: linear-gradient(to right, #333333, #666666);
-            color: #fff;
-            min-height: 100vh;
-            padding: 50px 0;
+            font-family: 'Pretendard', sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding-left: var(--sidebar-width);
         }
 
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            max-width: 1200px;
+        /* 사이드바 */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: #fff;
+            border-right: 1px solid #e5e7eb;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .sidebar-logo img {
+            width: 40px;
+            height: 40px;
         }
 
         .nav-links {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 5px;
-            border-radius: 30px;
-            margin-bottom: 30px;
-            gap: 5px;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .nav-links a {
-            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: #4b5563;
             text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 25px;
-            flex: 1;
-            text-align: center;
-            transition: all 0.3s ease;
-            white-space: nowrap;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
         }
 
-        .nav-links a:not(.home-btn) {
-            background: transparent;
-        }
-
-        .nav-links a:not(.home-btn):hover {
-            background: rgba(255, 255, 255, 0.2);
+        .nav-links a:hover {
+            background: #f3f4f6;
         }
 
         .nav-links a.active {
-            background: #1a237e;
+            background: #2563eb;
+            color: white;
         }
 
-        .home-btn {
-            background: #22c55e !important;
-            display: inline-flex;
+        /* 메인 컨텐츠 */
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-width: 120px;
-        }
-        
-        .home-btn:hover {
-            background: #16a34a !important;
+            margin-bottom: 2rem;
         }
 
+        .content-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        /* 가이드 카드 스타일 */
         .guide-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e5e7eb;
         }
 
+        /* 폼 컨트롤 */
         .form-control {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 12px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
         }
 
         .form-control:focus {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: none;
-            color: #fff;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
+        /* 버튼 스타일 */
         .btn {
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
         }
 
         .btn-primary {
-            background-color: #1a237e;
+            background: #2563eb;
             border: none;
         }
 
         .btn-primary:hover {
-            background-color: #0d47a1;
-            transform: translateY(-2px);
+            background: #1d4ed8;
         }
 
         .btn-danger {
-            background-color: #dc3545;
+            background: #dc2626;
             border: none;
         }
 
         .btn-danger:hover {
-            background-color: #c82333;
-            transform: translateY(-2px);
+            background: #b91c1c;
         }
 
-        textarea.form-control {
-            min-height: 120px;
+        /* 모달 스타일 */
+        .modal-content {
+            border-radius: 1rem;
+            border: none;
+            background: white;
         }
 
-        .form-check-input {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
+        .modal-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1.5rem;
         }
 
-        .form-check-input:checked {
-            background-color: #1a237e;
-            border-color: #1a237e;
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            body {
+                padding-left: 0;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                z-index: 999;
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-content {
+                padding-top: 4rem;
+            }
+        }
+
+        /* 모바일 메뉴 토글 */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 8px;
-                padding: 8px;
+            .menu-toggle {
+                display: block;
             }
-            
-            .nav-links a {
-                min-width: calc(50% - 4px);
-            }
-        }
-
-        h2 {
-            color: #fff;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 2.5rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="nav-links mb-4">
-            <a href="/" class="home-btn"><i class="fas fa-home"></i> 메인페이지</a>
-            <a href="/admin/hero-section">히어로 섹션</a>
-            <a href="/admin/about-section">프로필 섹션</a>
-            <a href="/admin/video-section">비디오 섹션</a>
-            <a href="/admin/success-cases">성공사례 섹션</a>
-            <a href="/admin/reviews">고객후기 섹션</a>
-            <a href="/admin/legal-guides" class="active">법률가이드 섹션</a>
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/images/wbclogotab.png" alt="로고">
+            <h2>관리자 패널</h2>
         </div>
-
-        <h2 class="text-center mb-4">법률가이드 관리</h2>
-
-        <!-- 새 법률가이드 추가 버튼 -->
-        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addGuideModal">
-            새 법률가이드 추가
-        </button>
-
-        <!-- 기존 법률가이드 목록 -->
-        <c:forEach items="${legalGuides}" var="guide">
-            <div class="guide-card">
-                <form action="/admin/legal-guides" method="post">
-                    <input type="hidden" name="id" value="${guide.id}">
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label>카테고리</label>
-                                <input type="text" name="category" value="${guide.category}" 
-                                       class="form-control" required>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label>제목</label>
-                                <input type="text" name="title" value="${guide.title}" 
-                                       class="form-control" required>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label>내용</label>
-                                <textarea name="content" class="form-control" 
-                                          rows="4" required>${guide.content}</textarea>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label>출처</label>
-                                <input type="text" name="source" value="${guide.source}" 
-                                       class="form-control" required>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label>날짜</label>
-                                <input type="date" name="date"
-                                    value="${guide.date}" 
-                                    class="form-control" required>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label>링크</label>
-                                <input type="url" name="link" value="${guide.link}" 
-                                       class="form-control" required>
-                            </div>
-
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="form-group mb-0">
-                                        <label>표시 순서</label>
-                                        <input type="number" name="displayOrder" 
-                                               value="${guide.displayOrder}" 
-                                               class="form-control" style="width: 80px" min="1">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-auto">
-                                    <div class="form-check mb-0">
-                                        <input class="form-check-input" type="checkbox" 
-                                               name="isHighlighted" value="true" 
-                                               ${guide.isHighlighted ? 'checked' : ''}>
-                                        <label class="form-check-label">최상단 표시</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-auto">
-                                    <div class="form-check mb-0">
-                                        <input class="form-check-input" type="checkbox" 
-                                               name="isActive" value="true" 
-                                               ${guide.isActive ? 'checked' : ''}>
-                                        <label class="form-check-label">활성화</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col text-end">
-                                    <button type="submit" class="btn btn-primary">저장</button>
-                                    <button type="button" class="btn btn-danger" 
-                                            onclick="deleteGuide(${guide.id})">삭제</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </c:forEach>
+        <nav class="nav-links">
+            <a href="/" class="home-btn">
+                <i class="fas fa-home"></i>
+                <span>메인페이지</span>
+            </a>
+            <a href="/admin/hero-section">
+                <i class="fas fa-image"></i>
+                <span>메인화면</span>
+            </a>
+            <a href="/admin/lawyer-profile">
+                <i class="fas fa-user"></i>
+                <span>프로필 섹션</span>
+            </a>
+            <a href="/admin/video-section">
+                <i class="fas fa-video"></i>
+                <span>비디오 섹션</span>
+            </a>
+            <a href="/admin/success-cases">
+                <i class="fas fa-trophy"></i>
+                <span>성공사례 섹션</span>
+            </a>
+            <a href="/admin/reviews">
+                <i class="fas fa-star"></i>
+                <span>고객후기 섹션</span>
+            </a>
+            <a href="/admin/legal-guides" class="active">
+                <i class="fas fa-book"></i>
+                <span>법률가이드 섹션</span>
+            </a>
+            <a href="/admin/careers">
+                <i class="fas fa-briefcase"></i>
+                <span>경력 관리</span>
+            </a>
+        </nav>
     </div>
 
+    <!-- 메인 컨텐츠 -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>법률가이드 관리</h1>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addGuideModal">
+                <i class="fas fa-plus"></i> 새 가이드 추가
+            </button>
+        </div>
+
+        <div class="content-card">
+            <div class="mb-4">
+                <img src="/images/법률 가이드.png" alt="법률 가이드" 
+                     style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+
+            <!-- 기존 가이드 목록 -->
+            <c:forEach items="${legalGuides}" var="guide">
+                <div class="guide-card">
+                    <form action="/admin/legal-guides" method="post">
+                        <input type="hidden" name="id" value="${guide.id}">
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label>카테고리</label>
+                                    <input type="text" name="category" value="${guide.category}" class="form-control" required>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label>제목</label>
+                                    <input type="text" name="title" value="${guide.title}" class="form-control" required>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label>내용</label>
+                                    <textarea name="content" class="form-control" rows="4" required>${guide.content}</textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label>출처</label>
+                                    <input type="text" name="source" value="${guide.source}" class="form-control" required>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label>날짜</label>
+                                    <input type="date" name="date" value="${guide.date}" class="form-control" required>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label>링크</label>
+                                    <input type="url" name="link" value="${guide.link}" class="form-control">
+                                </div>
+
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="form-group">
+                                            <label>표시 순서</label>
+                                            <input type="number" name="displayOrder" value="${guide.displayOrder}" 
+                                                   class="form-control" style="width: 80px" min="1" max="${legalGuides.size()}">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-auto">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="isHighlighted" 
+                                                   value="true" ${guide.isHighlighted ? 'checked' : ''}>
+                                            <label class="form-check-label">최상단 표시</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-auto">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="isActive" 
+                                                   value="true" ${guide.isActive ? 'checked' : ''}>
+                                            <label class="form-check-label">활성화</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col text-end">
+                                        <button type="submit" class="btn btn-primary">저장</button>
+                                        <button type="button" class="btn btn-danger" 
+                                                onclick="deleteGuide(${guide.id})">삭제</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </c:forEach>
+        </div>
+    </main>
+
     <!-- 새 법률가이드 추가 모달 -->
-    <div class="modal fade" id="addGuideModal" tabindex="-1" aria-labelledby="addGuideModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addGuideModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content" style="background: rgba(40, 40, 40, 0.95);">
-                <div class="modal-header border-bottom-0">
-                    <h5 class="modal-title" id="addGuideModalLabel">새 법률가이드 추가</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">새 법률가이드 추가</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form action="/admin/legal-guides" method="post">
@@ -316,39 +391,38 @@
 
                                 <div class="form-group mb-3">
                                     <label>링크</label>
-                                    <input type="url" name="link" class="form-control" required>
+                                    <input type="url" name="link" class="form-control">
                                 </div>
 
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <div class="form-group mb-0">
+                                        <div class="form-group">
                                             <label>표시 순서</label>
-                                            <input type="number" name="displayOrder" 
-                                                   class="form-control" style="width: 80px" min="1">
+                                            <input type="number" name="displayOrder" class="form-control" 
+                                                   style="width: 80px" min="1" max="${legalGuides.size() + 1}" value="1">
                                         </div>
                                     </div>
                                     
                                     <div class="col-auto">
-                                        <div class="form-check mb-0">
-                                            <input class="form-check-input" type="checkbox" 
-                                                   name="isHighlighted" value="true">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="isHighlighted" value="true">
                                             <label class="form-check-label">최상단 표시</label>
                                         </div>
                                     </div>
                                     
                                     <div class="col-auto">
-                                        <div class="form-check mb-0">
-                                            <input class="form-check-input" type="checkbox" 
-                                                   name="isActive" value="true" checked>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="isActive" value="true" checked>
                                             <label class="form-check-label">활성화</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="text-end mt-3">
+                        
+                        <div class="text-end mt-4">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                            <button type="submit" class="btn btn-primary">저장</button>
+                            <button type="submit" class="btn btn-primary">추가하기</button>
                         </div>
                     </form>
                 </div>
@@ -356,9 +430,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
     <script>
         function deleteGuide(id) {
             if (confirm('이 법률가이드를 삭제하시겠습니까?')) {
@@ -369,6 +441,27 @@
                 form.submit();
             }
         }
+
+        // 사이드바 토글 기능
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        mainContent.addEventListener('click', () => {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>

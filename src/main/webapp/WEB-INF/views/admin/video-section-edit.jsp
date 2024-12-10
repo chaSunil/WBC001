@@ -7,299 +7,346 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비디오 섹션 관리</title>
     
-    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/wbclogotab.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome 추가 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* 기존 스타일 유지 */
-        @font-face {
-            font-family: 'GmarketSansMedium';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        :root {
+            --sidebar-width: 280px;
         }
 
         body {
-            font-family: 'GmarketSansMedium', sans-serif;
-            background: linear-gradient(to right, #333333, #666666);
-            color: #fff;
-            min-height: 100vh;
-            padding: 50px 0;
+            font-family: 'Pretendard', sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding-left: var(--sidebar-width);
         }
 
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            max-width: 1200px;
+        /* 사이드바 */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: #fff;
+            border-right: 1px solid #e5e7eb;
+            padding: 2rem;
+            overflow-y: auto;
+            z-index: 100;
         }
 
-        /* 네비게이션 링크 스타일 */
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .sidebar-logo img {
+            width: 40px;
+            height: 40px;
+        }
+
         .nav-links {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 5px;
-            border-radius: 30px;
-            margin-bottom: 30px;
-            gap: 5px;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .nav-links a {
-            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: #4b5563;
             text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 25px;
-            flex: 1;
-            text-align: center;
-            transition: all 0.3s ease;
-            white-space: nowrap;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
         }
 
-        .nav-links a:not(.home-btn) {
-            background: transparent;
-        }
-
-        .nav-links a:not(.home-btn):hover {
-            background: rgba(255, 255, 255, 0.2);
+        .nav-links a:hover {
+            background: #f3f4f6;
         }
 
         .nav-links a.active {
-            background: #1a237e;
+            background: #2563eb;
+            color: white;
         }
 
-        .home-btn {
-            background: #22c55e !important;
-            display: inline-flex;
+        /* 메인 컨텐츠 */
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-width: 120px;
-        }
-        
-        .home-btn:hover {
-            background: #16a34a !important;
-        }
-        
-        .home-btn i {
-            font-size: 1.1rem;
+            margin-bottom: 2rem;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 8px;
-                padding: 8px;
-            }
-            
-            .nav-links a {
-                min-width: calc(50% - 4px);
-            }
+        .content-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
         }
 
-        /* 폼 스타일 */
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-control {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 12px 20px;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: none;
-            color: #fff;
-        }
-
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* 비디오 아이템 스타일 */
+        /* 비디오 섹션 스타일 */
         .video-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+        }
+
+        .video-item:hover {
+            border-color: #2563eb;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .video-preview {
-            margin-top: 15px;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            border-radius: 5px;
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        /* 폼 컨트롤 */
+        .form-control {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+        }
+
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
         /* 버튼 스타일 */
+        .btn-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
         .btn {
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-primary {
-            background-color: #1a237e;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #0d47a1;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .btn-warning {
-            background-color: #ff9800;
-            border: none;
+            background: #2563eb;
             color: white;
-            margin-bottom: 30px;
-        }
-
-        .btn-warning:hover {
-            background-color: #f57c00;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .btn-danger {
-            padding: 8px 20px;
-            font-size: 0.9rem;
-        }
-
-        h2 {
-            color: #fff;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 2.5rem;
+            border: none;
         }
 
         .btn-secondary {
-            background-color: #455a64;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
+            background: #f3f4f6;
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
         }
 
-        .btn-secondary:hover {
-            background-color: #37474f;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+            border: none;
+        }
+
+        .btn-warning {
+            background: #f59e0b;
+            color: white;
+            border: none;
+        }
+
+        /* 모바일 대응 */
+        @media (max-width: 768px) {
+            body {
+                padding-left: 0;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                padding-top: 4rem;
+            }
+        }
+
+        /* 모바일 메뉴 토글 버튼 */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="nav-links">
-            <a href="/" class="home-btn"><i class="fas fa-home"></i> 메인페이지</a>
-            <a href="/admin/hero-section">히어로 섹션</a>
-            <a href="/admin/about-section">프로필 섹션</a>
-            <a href="/admin/video-section" class="active">비디오 섹션</a>
-            <a href="/admin/success-cases">성공사례 섹션</a>
-            <a href="/admin/reviews">고객후기 섹션</a>
-            <a href="/admin/legal-guides">법률가이드 섹션</a>
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/images/wbclogotab.png" alt="로고">
+            <h2>관리자 패널</h2>
         </div>
-
-        <h2>비디오 섹션 관리</h2>
-
-        <div class="mb-4">
-            <img src="/images/video-guide.jpg" alt="고객후기 가이드" 
-                 style="width: 100%; 
-                        max-width: 1200px;
-                        border-radius: 10px; 
-                        box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-        </div>        
-
-        <form action="/admin/video-section/reset" method="post" style="text-align: center;">
-            <button type="submit" class="btn btn-warning" 
-                    onclick="return confirm('기본값으로 되돌리시겠습니까?')">
-                기본값으로 초기화
-            </button>
-        </form>
-
-        <form action="/admin/video-section" method="post">
-            <input type="hidden" name="id" value="${videoSection.id}">
-            
-            <div class="form-group">
-                <label>대표 영상 제목</label>
-                <input type="text" name="mainTitle" value="${videoSection.mainTitle}" 
-                       class="form-control" placeholder="대표 영상">
-            </div>
-
-            <div id="videoList">
-                <c:forEach items="${videoSection.videos}" var="video" varStatus="status">
-                    <div class="video-item">
-                        <input type="hidden" name="videos[${status.index}].id" value="${video.id}">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label>순서</label>
-                                <input type="number" name="videos[${status.index}].number" 
-                                       value="${video.number}" class="form-control" min="1" max="3">
-                            </div>
-                            <div class="col-md-10">
-                                <label>YouTube URL</label>
-                                <input type="text" name="videos[${status.index}].videoId" 
-                                       value="${video.videoId}" 
-                                       class="form-control" 
-                                       placeholder="https://www.youtube.com/watch?v=..."
-                                       onchange="updateVideoPreview(this)">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-5">
-                                <label>제목</label>
-                                <input type="text" name="videos[${status.index}].title" 
-                                       value="${video.title}" class="form-control" 
-                                       placeholder="영상 제목">
-                            </div>
-                            <div class="col-md-6">
-                                <label>설명</label>
-                                <input type="text" name="videos[${status.index}].description" 
-                                       value="${video.description}" class="form-control" 
-                                       placeholder="영상 설명">
-                            </div>
-                            <div class="col-md-1">
-                                <label>&nbsp;</label>
-                                <button type="button" class="btn btn-danger" 
-                                        onclick="removeVideo(this)">삭제</button>
-                            </div>
-                        </div>
-                        <div class="video-preview">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/${video.videoId}" 
-                                        title="YouTube video" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-            
-            <div class="d-flex justify-content-between align-items-center mt-4">
-                <button type="button" class="btn btn-secondary" onclick="addVideo()">영상 추가</button>
-                <button type="submit" class="btn btn-primary">저장</button>
-            </div>
-        </form>
+        <nav class="nav-links">
+            <a href="/" class="home-btn">
+                <i class="fas fa-home"></i>
+                <span>메인페이지</span>
+            </a>
+            <a href="/admin/hero-section">
+                <i class="fas fa-image"></i>
+                <span>메인화면</span>
+            </a>
+            <a href="/admin/lawyer-profile">
+                <i class="fas fa-user"></i>
+                <span>프로필 섹션</span>
+            </a>
+            <a href="/admin/video-section" class="active">
+                <i class="fas fa-video"></i>
+                <span>비디오 섹션</span>
+            </a>
+            <a href="/admin/success-cases">
+                <i class="fas fa-trophy"></i>
+                <span>성공사례 섹션</span>
+            </a>
+            <a href="/admin/reviews">
+                <i class="fas fa-star"></i>
+                <span>고객후기 섹션</span>
+            </a>
+            <a href="/admin/legal-guides">
+                <i class="fas fa-book"></i>
+                <span>법률가이드 섹션</span>
+            </a>
+            <a href="/admin/careers">
+                <i class="fas fa-briefcase"></i>
+                <span>경력 관리</span>
+            </a>
+        </nav>
     </div>
 
-    <!-- Bootstrap JS -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>비디오 섹션 관리</h1>
+            <button type="button" class="btn btn-secondary" onclick="location.href='/admin/video-section/reset'">
+                <i class="fas fa-undo"></i> 기본값으로 초기화
+            </button>
+        </div>
+
+        <div class="content-card">
+            <div class="mb-4">
+                <img src="/images/video-guide.jpg" alt="비디오 섹션 가이드" 
+                     style="width: 100%; max-width: 1200px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+
+            <form action="/admin/video-section" method="post">
+                <input type="hidden" name="id" value="${videoSection.id}">
+                
+                <div class="form-group mb-4">
+                    <label>대표 영상 제목</label>
+                    <input type="text" name="mainTitle" value="${videoSection.mainTitle}" 
+                           class="form-control" placeholder="대표 영상">
+                </div>
+
+                <div id="videoList">
+                    <c:forEach items="${videoSection.videos}" var="video" varStatus="status">
+                        <div class="video-item">
+                            <input type="hidden" name="videos[${status.index}].id" value="${video.id}">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>순서</label>
+                                    <input type="number" name="videos[${status.index}].number" 
+                                           value="${video.number}" class="form-control" min="1" max="3">
+                                </div>
+                                <div class="col-md-10">
+                                    <label>YouTube URL</label>
+                                    <input type="text" name="videos[${status.index}].videoId" 
+                                           value="${video.videoId}" class="form-control" 
+                                           placeholder="https://www.youtube.com/watch?v=..."
+                                           onchange="updateVideoPreview(this)">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-5">
+                                    <label>제목</label>
+                                    <input type="text" name="videos[${status.index}].title" 
+                                           value="${video.title}" class="form-control" 
+                                           placeholder="영상 제목">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>설명</label>
+                                    <input type="text" name="videos[${status.index}].description" 
+                                           value="${video.description}" class="form-control" 
+                                           placeholder="영상 설명">
+                                </div>
+                                <div class="col-md-1">
+                                    <label>&nbsp;</label>
+                                    <button type="button" class="btn btn-danger" onclick="deleteVideo(${video.id}, this)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="video-preview">
+                                <div class="ratio ratio-16x9">
+                                    <iframe src="https://www.youtube.com/embed/${video.videoId}" 
+                                            title="YouTube video" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+
+                <div class="btn-row">
+                    <button type="button" class="btn btn-secondary" onclick="addVideo()">
+                        <i class="fas fa-plus"></i> 영상 추가
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> 저장하기
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
     <script>
         function addVideo() {
             const videoList = document.getElementById('videoList');
@@ -342,8 +389,9 @@
                     </div>
                     <div class="col-md-1">
                         <label>&nbsp;</label>
-                        <button type="button" class="btn btn-danger" 
-                                onclick="removeVideo(this)">삭제</button>
+                        <button type="button" class="btn btn-danger" onclick="removeVideo(this)">
+                            <i class="fas fa-trash"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="video-preview">
@@ -354,32 +402,73 @@
             `;
             videoList.appendChild(newVideo);
         }
-        
+
         function removeVideo(button) {
             button.closest('.video-item').remove();
         }
-        
+
         function updateVideoPreview(input) {
             const videoId = extractVideoId(input.value);
-            const previewFrame = input.closest('.video-item')
-                                    .querySelector('.video-preview iframe');
+            const previewFrame = input.closest('.video-item').querySelector('.video-preview iframe');
             if (videoId) {
                 previewFrame.src = `https://www.youtube.com/embed/${videoId}`;
-                input.value = videoId;  // videoId만 저장
+                input.value = videoId;
             }
         }
-        
+
         function extractVideoId(url) {
             const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             const match = url.match(regExp);
             return (match && match[2].length === 11) ? match[2] : null;
         }
-        
+
+        // 사이드바 토글 기능
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // 메인 컨텐츠 클릭시 사이드바 닫기
+        mainContent.addEventListener('click', () => {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // 화면 크기 변경 시 사이드바 상태 초기화
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('active');
+            }
+        });
+
         // 페이지 로드 시 기존 비디오 미리보기 업데이트
         document.addEventListener('DOMContentLoaded', function() {
             const videoInputs = document.querySelectorAll('input[name$="].videoId"]');
             videoInputs.forEach(input => updateVideoPreview(input));
         });
+
+        function deleteVideo(videoId, button) {
+            if (!confirm('정말 삭제하시겠습니까?')) return;
+            
+            fetch(`/admin/video-section/delete/${videoId}`, {
+                method: 'POST'
+            })
+            .then(response => {
+                if (response.ok) {
+                    button.closest('.video-item').remove();
+                } else {
+                    alert('삭제 중 오류가 발생했습니다.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('삭제 중 오류가 발생했습니다.');
+            });
+        }
     </script>
 </body>
-</html> 
+</html>
