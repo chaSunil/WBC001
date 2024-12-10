@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>전문 변호사 소개 사이트</title>
+    <meta name="robots" content="index, follow">
+    <title>WBC 웹명함 제작 | 최선 변호사 | webbusinesscard</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/images/wbclogotab.png">
@@ -24,9 +26,27 @@
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <script>
+    <!-- SEO 메타태그 추가 -->
+    <meta name="description" content="최선 변호사 | wbc | Web Business Card | 웹명함사이트">
+    <meta name="keywords" content="최선 변호사, wbc, WebBusinessCard, 웹명함사이트, 모바일명함, 웹명함">
+    <meta name="author" content="최선 변호사">
+    
+    <!-- Open Graph 태그 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="최선 변호사 | webbusinesscard">
+    <meta property="og:description" content="모바일과 웹에서 사용하는 웹명함사이트 WBC 입니다.">
+    <meta property="og:image" content="https://webbusinesscard.co.kr/images/wbclogotab.png">
+    <meta property="og:url" content="https://webbusinesscard.co.kr">
 
-    </script>
+    <!-- 보조 메타태그 -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#1a237e">
+    <link rel="canonical" href="https://webbusinesscard.co.kr">
+
+    <!-- SEO 최적화 -->
+    <meta name="geo.region" content="KR">
+    <meta name="geo.placename" content="Seoul">
+    
 </head>
 <body>
     <!-- body 태그 바로 아래에 배경 div 추가 -->
@@ -94,7 +114,7 @@
                         </h1>
                         <div class="subtitle-wrapper">
                             <p class="lead text-white hero-subtitle d-none d-md-block">
-                                ${heroSection.subtitleLine1} ${heroSection.subtitleLine2}
+                                ${heroSection.subtitle}
                             </p>
                         </div>
                     </div>
@@ -118,13 +138,13 @@
             <!-- 모바일 레이아웃 -->
             <div class="row flex-column align-items-center text-center mobile-layout">
                 <div class="col-12 mb-4">
-                    <h1 class="text-white hero-title-mobile">
-                        ${heroSection.lawyerName}
+                   <h1 class="text-white hero-title-mobile">
+                       ${heroSection.lawyerName}
                     </h1>
                 </div>
                 <div class="col-12 mb-4">
                     <p class="lead text-white mobile-subtitle d-md-none">
-                        ${heroSection.subtitleLine1} ${heroSection.subtitleLine2}
+                        ${heroSection.subtitle}
                     </p>
                 </div>
                 <div class="col-12">
@@ -176,40 +196,28 @@
                                     border-radius: 20px;
                                     padding: 2.5rem;
                                     transition: all 0.3s ease;">
-                            <img src="${heroSection.profileImage}" alt="최 선 변호사" class="mb-4" style="width: 100%; max-width: 320px;">
-                            <h3 class="mb-2 text-white" style="font-size: 2.5rem;">최선 변호사</h3>
-                            <p class="text-light mb-3" style="font-size: 1.2rem; opacity: 0.9;">민사전문 / 대한변호사협회</p>
+                            <img src="${lawyerProfile.profileImage}" alt="${lawyerProfile.name}" 
+                                 class="mb-4" style="width: 100%; max-width: 320px;">
+                            <h3 class="mb-2 text-white" style="font-size: 2.5rem;">${lawyerProfile.name}</h3>
+                            <p class="text-light mb-3" style="font-size: 1.2rem; opacity: 0.9;">
+                                ${lawyerProfile.subtitle1} / ${lawyerProfile.subtitle2}
+                            </p>
                         </div>
                     </div>
+                    
                     <!-- 경력 리스트 -->
                     <div class="col-lg-3">
                         <div class="career-list">
                             <h2 class="text-white mb-4">주요 경력</h2>
                             <ul class="career-items">
-                                <li class="career-item">
-                                    <div class="career-content">
-                                        <h6 class="career-title">법무법인 WBC 변호사</h6>
-                                        <small class="career-period">2020 - 현재</small>
-                                    </div>
-                                </li>
-                                <li class="career-item">
-                                    <div class="career-content">
-                                        <h6 class="career-title">서울중앙지방법원 부장판사</h6>
-                                        <small class="career-period">2015 - 2020</small>
-                                    </div>
-                                </li>
-                                <li class="career-item">
-                                    <div class="career-content">
-                                        <h6 class="career-title">사법연수원 교수</h6>
-                                        <small class="career-period">2013 - 2015</small>
-                                    </div>
-                                </li>
-                                <li class="career-item">
-                                    <div class="career-content">
-                                        <h6 class="career-title">인천지방법원 부장판사</h6>
-                                        <small class="career-period">2010 - 2013</small>
-                                    </div>
-                                </li>
+                                <c:forEach items="${lawyerProfile.careers}" var="career">
+                                    <li class="career-item">
+                                        <div class="career-content">
+                                            <h6 class="career-title">${career.careerTitle}</h6>
+                                            <small class="career-period">${career.period}</small>
+                                        </div>
+                                    </li>
+                                </c:forEach>
                             </ul>
                         </div>
                     </div>
@@ -221,14 +229,15 @@
                                 인사말
                             </h3>
                             <div class="greeting-text text-white" style="line-height: 1.8; opacity: 0.9;">
-                                <p style="font-size: 1.1rem;">저는 다양한 사건을 통해 쌓아 경험과 노하우로 고객님의 법적 문제를 신속하고 정확하게 해결해 드리는 것을 목표로 하고 있습니다.</p>
-                                <p style="font-size: 1.1rem;">모든 사건은 각자의 신중한 인생이 걸린 문제라고 생각하며, 철저한 분석과 꼼꼼한 준비로 고객님의 권리를 끝까지 지켜드리겠습니다.</p>
-                                <p style="font-size: 1.1rem;">어려운 법률 문제도 함께라면 해결의 길을 찾을 수 있습니다. 작은 상담이라도 편하게 문의 주세요. 언제나 고객님의 입장에서 최선의 방안을 제시하겠습니다.</p>
+                                <p style="font-size: 1.1rem;">${lawyerProfile.greetingContent}</p>
                             </div>
                             <div class="signature-box mt-4">
                                 <div class="d-flex align-items-center justify-content-end">
-                                    <span class="text-white me-3" style="font-size: 1.2rem;">변호사 최 선</span>
-                                    <img src="/images/싸인.png" alt="최선 변호사 서명" 
+                                    <span class="text-white me-3" style="font-size: 1.2rem;">
+                                        ${lawyerProfile.signatureName}
+                                    </span>
+                                    <img src="${lawyerProfile.signatureImage}" 
+                                         alt="${lawyerProfile.name} 서명" 
                                          style="height: 70px; width: auto; opacity: 0.9;">
                                 </div>
                             </div>
@@ -268,15 +277,15 @@
                                         <div class="vertical-divider"></div>
                                     </div>
 
-                                    <!-- 현재 소속 (오른쪽) -->
+                                    <!-- 현재 로펌 소속 (오른쪽) -->
                                     <div class="col-md-5 affiliation-section">
                                         <div class="affiliation-card">
                                             <div class="d-flex align-items-center">
                                                 <div class="law-firm-logo-wrapper me-4">
-                                                    <img src="/images/회사로고.png" alt="법무법인" class="law-firm-logo" style="width: 200px; height: auto;">
+                                                    <img src="/images/회사로고.png" alt="법무법인 WBC" class="law-firm-logo" style="width: 200px; height: auto;">
                                                 </div>
                                                 <div class="affiliation-details">
-                                                    <h3 class="text-white mb-2">법무법인 최선</h3>
+                                                    <h3 class="text-white mb-2">법무법인 WBC</h3>
                                                     <div class="position-info">
                                                         <span class="position-badge me-2">대표변호사</span>
                                                         <span class="year-badge">2020 - 현재</span>
@@ -290,77 +299,29 @@
                         </section>
                         
                         <div class="career-categories">
-                            <!-- 학술 경력 -->
-                            <div class="career-category academic">
-                                <div class="category-icon">
-                                    <i class="fas fa-university"></i>
-                                </div>
-                                <h4 class="category-title">학술 활동</h4>
-                                <div class="career-items">
-                                    <div class="career-item">
-                                        <div class="year-badge">2022 - 현재</div>
-                                        <div class="career-content">
-                                            <h5>한국민사법학회</h5>
-                                            <p>이사</p>
-                                        </div>
+                            <c:forEach items="${careersByCategory}" var="entry">
+                                <div class="career-category">
+                                    <div class="category-icon">
+                                        <i class="${entry.key.icon}"></i>
                                     </div>
-                                    <div class="career-item">
-                                        <div class="year-badge">2021 - 현재</div>
-                                        <div class="career-content">
-                                            <h5>한국부동산법학회</h5>
-                                            <p>상임이사</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <!-- 자문 위원회 -->
-                            <div class="career-category advisory">
-                                <div class="category-icon">
-                                    <i class="fas fa-balance-scale"></i>
-                                </div>
-                                <h4 class="category-title">자문 위원회</h4>
-                                <div class="career-items">
-                                    <div class="career-item">
-                                        <div class="year-badge">2023 - 현재</div>
-                                        <div class="career-content">
-                                            <h5>대한상사중재원</h5>
-                                            <p>중재인</p>
-                                        </div>
-                                    </div>
-                                    <div class="career-item">
-                                        <div class="year-badge">2022 - 현재</div>
-                                        <div class="career-content">
-                                            <h5>금융감독원</h5>
-                                            <p>법률자문위원</p>
-                                        </div>
+                                    <h4 class="category-title">${entry.key.name}</h4>
+                                    <div class="career-items">
+                                        <c:forEach items="${entry.value}" var="career">
+                                            <c:if test="${career.isActive}">
+                                                <div class="career-item">
+                                                    <div class="year-badge">
+                                                        ${career.startYear} - ${empty career.endYear ? '현재' : career.endYear}
+                                                    </div>
+                                                    <div class="career-content">
+                                                        <h5>${career.organization}</h5>
+                                                        <p>${career.position}</p>
+                                                    </div>
+                                                </div>
+                                            </c:if>
+                                        </c:forEach>
                                     </div>
                                 </div>
-                            </div>
-                        
-                            <!-- 공공기관 -->
-                            <div class="career-category public">
-                                <div class="category-icon">
-                                    <i class="fas fa-landmark"></i>
-                                </div>
-                                <h4 class="category-title">공공기관</h4>
-                                <div class="career-items">
-                                    <div class="career-item">
-                                        <div class="year-badge">2023 - 현재</div>
-                                        <div class="career-content">
-                                            <h5>서울중앙지방법원</h5>
-                                            <p>조정위원</p>
-                                        </div>
-                                    </div>
-                                    <div class="career-item">
-                                        <div class="year-badge">2022 - 현재</div>
-                                        <div class="career-content">
-                                            <h5>법무부</h5>
-                                            <p>민사법 개정위원회 자문위원</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
 
                         <!-- 업적 섹션 -->
@@ -479,7 +440,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <span class="badge bg-primary mb-2">2022</span>
-                                                            <p>��국부동산법학회 정회원</p>
+                                                            <p>한국부동산법학회 정회원</p>
                                                             <p>대형 건설사 법률자문 위원</p>
                                                             <p>금융감독원 법률자문단</p>
                                                         </div>
@@ -627,8 +588,11 @@
                                 <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">금전 소송</h4>
                                 <!-- 진행 사건 수 추 -->
                                 <div class="case-count mb-4">
-                                    <span class="count-number" data-count="387">0</span>
-                                    <span class="count-text text-white-50 d-block">진행 사건</span>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <span class="count-number" data-count="300" style="display: inline-block;">0</span>
+                                        <span class="count-number"> +</span>
+                                    </div>
+                                    <span class="count-text text-white-50 d-block">건 이상의 법률자문</span>
                                 </div>
 
                             </div>
@@ -671,8 +635,11 @@
                                 <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">손해배상 청구</h4>
                                 <!-- 진행 사건 수 추가 -->
                                 <div class="case-count mb-4">
-                                    <span class="count-number" data-count="312">0</span>
-                                    <span class="count-text text-white-50 d-block">진행 사건</span>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <span class="count-number" data-count="200" style="display: inline-block;">0</span>
+                                        <span class="count-number"> +</span>
+                                    </div>
+                                    <span class="count-text text-white-50 d-block">건 이상의 법률자문</span>
                                 </div>
 
                             </div>
@@ -714,8 +681,11 @@
                                 <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">부동산 소송</h4>
                                 <!-- 진행 사건 수 추가 -->
                                 <div class="case-count mb-4">
-                                    <span class="count-number" data-count="245">0</span>
-                                    <span class="count-text text-white-50 d-block">진행 사건</span>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <span class="count-number" data-count="300" style="display: inline-block;">0</span>
+                                        <span class="count-number"> +</span>
+                                    </div>
+                                    <span class="count-text text-white-50 d-block">건 이상의 법률자문</span>
                                 </div>
 
                             </div>
@@ -745,40 +715,6 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="expertise-card h-100">
-                            <div class="text-center mb-5">
-                                <div class="icon-circle mb-4">
-                                    <img src="/images/금전.png" alt="금전 소송">
-                                </div>
-                                <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">금전 소송</h4>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 손해배상 청구 카드 -->
-                    <div class="col-md-4">
-                        <div class="expertise-card h-100">
-                            <div class="text-center mb-5">
-                                <div class="icon-circle mb-4">
-                                    <img src="/images/손해배상.png" alt="손해배상 청구">
-                                </div>
-                                <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">손해배상 청구</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="expertise-card h-100">
-                            <div class="text-center mb-5">
-                                <div class="icon-circle mb-4">
-                                    <img src="/images/부동산.png" alt="부동산 소송">
-                                </div>
-                                <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">부동산 소송</h4>
-                            </div>
                         </div>
                     </div>
 
@@ -945,91 +881,123 @@
     </section>
 
     <!-- 법률정보 섹션 -->
-<section id="blog" class="py-5" 
-         style="background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url('/images/배경.jpg');
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
-                padding: 120px 0;
-                margin-top: 80px;     /* 추가: 성공사례와 동일한 상단 여백 */
-                margin-bottom: 80px;">
-        <div class="container">
-                <!-- 섹션 헤더 -->
-                <div class="row mb-5">
-                    <div class="col-12 text-center">
-                        <h6 class="text-primary fw-bold mb-3" 
-                            style="font-family: 'GmarketSansMedium'; 
-                                   letter-spacing: 2px;
-                                   color: rgba(255,255,255,0.9) !important;">
-                            LEGAL INSIGHTS
-                        </h6>
-                        <h2 class="display-4 text-white mb-4" 
-                            style="font-family: 'MaruBuriBold';">
-                            법률 가이드
-                        </h2>
-                        <div class="divider mx-auto" style="width: 60px; height: 4px; background: #1a237e; margin-bottom: 40px;"></div>
-                    </div>
-                </div>
+    <section id="blog" class="py-5" 
+    style="background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url('/images/배경.jpg');
+           background-size: cover;
+           background-position: center;
+           background-attachment: fixed;
+           padding: 120px 0;
+           margin-top: 80px;     /* 추가: 성공사례와 동일한 상단 여백 */
+           margin-bottom: 80px;">
+   <div class="container">
+           <!-- 섹션 헤더 -->
+           <div class="row mb-5">
+               <div class="col-12 text-center">
+                   <h6 class="text-primary fw-bold mb-3" 
+                       style="font-family: 'GmarketSansMedium'; 
+                              letter-spacing: 2px;
+                              color: rgba(255,255,255,0.9) !important;">
+                       LEGAL INSIGHTS
+                   </h6>
+                   <h2 class="display-4 text-white mb-4" 
+                       style="font-family: 'MaruBuriBold';">
+                       법률 가이드
+                   </h2>
+                   <div class="divider mx-auto" style="width: 60px; height: 4px; background: #1a237e; margin-bottom: 40px;"></div>
+               </div>
+           </div>
 
-            <!-- 최신 법률 정보 -->
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <c:if test="${highlightedGuide != null}">
-                        <div class="latest-news p-5 rounded" 
-                             style="background: rgba(26, 35, 126, 0.15);
-                                    backdrop-filter: blur(15px);
-                                    border: 1px solid rgba(255, 255, 255, 0.1);
-                                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                                    margin-bottom: 50px;">
-                            <span class="badge mb-3" 
-                                  style="background-color: #1a237e;
-                                         padding: 8px 15px;
-                                         font-size: 0.9rem;">${highlightedGuide.category}</span>
-                            <h4 class="text-white mb-3" 
-                                style="font-size: 1.8rem;">${highlightedGuide.title}</h4>
-                            <p class="text-white-50 mb-4" 
-                               style="font-size: 1.1rem;">${highlightedGuide.content}</p>
-                            <a href="${highlightedGuide.link}" class="btn btn-outline-light" target="_blank">자세히 보기</a>
-                        </div>
-                    </c:if>
-                </div>
-            </div>
+       <!-- 최신 법률 정보 -->
+       <div class="row mb-5">
+           <div class="col-lg-8 mx-auto">
+               <c:if test="${highlightedGuide != null}">
+                   <div class="latest-news p-5 rounded" 
+                        style="background: rgba(26, 35, 126, 0.15);
+                               backdrop-filter: blur(15px);
+                               border: 1px solid rgba(255, 255, 255, 0.1);
+                               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                               margin-bottom: 50px;">
+                       <span class="badge mb-3" 
+                             style="background-color: #1a237e;
+                                    padding: 8px 15px;
+                                    font-size: 0.9rem;">${highlightedGuide.category}</span>
+                       <h4 class="text-white mb-3" 
+                           style="font-size: 1.8rem;">${highlightedGuide.title}</h4>
+                       <p class="text-white-50 mb-4" 
+                          style="font-size: 1.1rem;">${highlightedGuide.content}</p>
+                       <a href="${highlightedGuide.link}" class="btn btn-outline-light" target="_blank">자세히 보기</a>
+                   </div>
+               </c:if>
+           </div>
+       </div>
 
-            <!-- 법률 정보 카드 -->
-            <div class="row g-4">
-                <c:forEach items="${legalGuides}" var="guide">
-                    <div class="col-md-4">
-                        <a href="${guide.link}" class="text-decoration-none" target="_blank">
-                            <div class="card h-100 border-0" 
-                                 style="background: rgba(255, 255, 255, 0.05);
-                                        backdrop-filter: blur(10px);
-                                        border: 1px solid rgba(255, 255, 255, 0.1);
-                                        transition: all 0.3s ease;">
-                                <div class="card-body p-4">
-                                    <div class="category-badge mb-3">
-                                        <span class="badge" 
-                                              style="background-color: #1a237e;
-                                                     padding: 8px 15px;">${guide.category}</span>
-                                    </div>
-                                    <h5 class="card-title text-white mb-3" 
-                                        style="font-size: 1.4rem;">${guide.title}</h5>
-                                    <p class="card-text2 text-white-50 mb-4" 
-                                       style="font-size: 1.1rem;">${guide.content}</p>
-                                    <div class="article-meta">
-                                        <small class="text-white-50">
-                                            <i class="fas fa-eye me-2"></i>${guide.source}
-                                            <i class="fas fa-calendar ms-3 me-2"></i>
-                                            ${guide.date.year}.${String.format('%02d', guide.date.monthValue)}.${String.format('%02d', guide.date.dayOfMonth)}
-                                        </small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-    </section>
+       <!-- 법률 정보 카드 -->
+       <div class="row g-4">
+           <c:forEach items="${legalGuides}" var="guide">
+               <div class="col-md-4">
+                   <c:choose>
+                       <c:when test="${not empty guide.link}">
+                           <a href="${guide.link}" class="text-decoration-none" target="_blank">
+                               <div class="card h-100 border-0" 
+                                    style="background: rgba(255, 255, 255, 0.05);
+                                           backdrop-filter: blur(10px);
+                                           border: 1px solid rgba(255, 255, 255, 0.1);
+                                           transition: all 0.3s ease;">
+                                   <div class="card-body p-4">
+                                       <div class="category-badge mb-3">
+                                           <span class="badge" 
+                                                 style="background-color: #1a237e;
+                                                        padding: 8px 15px;">${guide.category}</span>
+                                       </div>
+                                       <h5 class="card-title text-white mb-3" 
+                                           style="font-size: 1.4rem;">${guide.title}</h5>
+                                       <p class="card-text2 text-white-50 mb-4" 
+                                          style="font-size: 1.1rem;">${guide.content}</p>
+                                       <div class="article-meta">
+                                           <small class="text-white-50">
+                                               <i class="fas fa-eye me-2"></i>${guide.source}
+                                               <i class="fas fa-calendar ms-3 me-2"></i>
+                                               ${guide.date.year}.${String.format('%02d', guide.date.monthValue)}.${String.format('%02d', guide.date.dayOfMonth)}
+                                           </small>
+                                       </div>
+                                   </div>
+                               </div>
+                           </a>
+                       </c:when>
+                       <c:otherwise>
+                           <div class="text-decoration-none">
+                               <div class="card h-100 border-0" 
+                                    style="background: rgba(255, 255, 255, 0.05);
+                                           backdrop-filter: blur(10px);
+                                           border: 1px solid rgba(255, 255, 255, 0.1);
+                                           transition: all 0.3s ease;">
+                                   <div class="card-body p-4">
+                                       <div class="category-badge mb-3">
+                                           <span class="badge" 
+                                                 style="background-color: #1a237e;
+                                                        padding: 8px 15px;">${guide.category}</span>
+                                       </div>
+                                       <h5 class="card-title text-white mb-3" 
+                                           style="font-size: 1.4rem;">${guide.title}</h5>
+                                       <p class="card-text2 text-white-50 mb-4" 
+                                          style="font-size: 1.1rem;">${guide.content}</p>
+                                       <div class="article-meta">
+                                           <small class="text-white-50">
+                                               <i class="fas fa-eye me-2"></i>${guide.source}
+                                               <i class="fas fa-calendar ms-3 me-2"></i>
+                                               ${guide.date.year}.${String.format('%02d', guide.date.monthValue)}.${String.format('%02d', guide.date.dayOfMonth)}
+                                           </small>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </c:otherwise>
+                   </c:choose>
+               </div>
+           </c:forEach>
+       </div>
+   </div>
+</section>
 
     <!-- 상담예약 섹션 개선 -->
     <section id="contact" class="consultation-section py-5">
@@ -1270,9 +1238,6 @@
                         </a>
                         <a href="#" class="me-3 text-white-50 hover-effect">
                             <i class="fab fa-youtube fa-lg"></i>
-                        </a>
-                        <a href="#" class="text-white-50 hover-effect">
-                            <i class="fab fa-blog fa-lg"></i>
                         </a>
                     </div>
                 </div>
