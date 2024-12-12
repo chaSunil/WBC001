@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.road.perfectpro.dto.LawyerProfileDTO;
 import com.road.perfectpro.service.CareerService;
+import com.road.perfectpro.service.ExpertiseService;
 import com.road.perfectpro.service.HeroSectionService;
 import com.road.perfectpro.service.LawyerProfileService;
 import com.road.perfectpro.service.ReviewSectionService;
@@ -16,6 +17,8 @@ import com.road.perfectpro.service.LegalGuideService;
 import com.road.perfectpro.service.FAQService;
 import com.road.perfectpro.vo.Career;
 import com.road.perfectpro.vo.CareerCategory;
+import com.road.perfectpro.vo.Expertise;
+import com.road.perfectpro.vo.ExpertiseDetail;
 import com.road.perfectpro.vo.HeroSection;
 import com.road.perfectpro.vo.ReviewSection;
 import com.road.perfectpro.vo.VideoSection;
@@ -26,6 +29,7 @@ import com.road.perfectpro.vo.FAQ;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 @Slf4j
@@ -55,6 +59,9 @@ public class HomeController {
     
     @Autowired
     private FAQService faqService;
+
+    @Autowired
+    private ExpertiseService expertiseService; 
 
     @GetMapping("/")
     public String home(Model model) {
@@ -88,13 +95,21 @@ public class HomeController {
         model.addAttribute("highlightedGuide", highlightedGuide);
         model.addAttribute("legalGuides", activeGuides);
         
-        // FAQ 데이터 추가
+        // FAQ 데이터
         List<FAQ> faqs = faqService.getAllFAQs();
         model.addAttribute("faqs", faqs);
         
-        log.info("법률가이드 데이터 로드: 하이라이트={}, 활성화된 가이드 수={}", 
-                highlightedGuide != null ? highlightedGuide.getTitle() : "없음", 
-                activeGuides.size());
+        // 전문분야 데이터
+        List<Expertise> expertiseList = expertiseService.getAllExpertise();
+        Map<Long, List<ExpertiseDetail>> detailsMap = new HashMap<>();
+        
+        for (Expertise expertise : expertiseList) {
+            List<ExpertiseDetail> details = expertiseService.getDetailsForExpertise(expertise.getId());
+            detailsMap.put(expertise.getId(), details);
+        }
+        
+        model.addAttribute("expertiseList", expertiseList);
+        model.addAttribute("expertiseDetails", detailsMap);
                 
         return "main";
     }
