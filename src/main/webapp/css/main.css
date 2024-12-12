@@ -4691,7 +4691,7 @@ h1.display-4 {
     }
 
     /* 모바일 반응형 */
-    @media (max-width: 768) {
+    @media (max-width: 768px) {
         .philosophy-cards .row {
             flex-direction: column;  /* 모바일에서는 세로로 */
         }
@@ -4706,7 +4706,7 @@ h1.display-4 {
         }
     }
 
-    @media (max-width: 768) {
+    @media (max-width: 768px) {
         .education-card, .affiliation-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 30px;
@@ -4849,4 +4849,49 @@ h1.display-4 {
 
     #blog .divider {
         margin-bottom: 3rem !important;  /* 구분선 아래 여백 조정 */
+    }
+
+    /* 기존 소셜 링크 스타일 */
+    .social-links {
+        display: flex;
+        align-items: center;
+    }
+
+    /* 모바일 환경에서 중앙 정렬 */
+    @media (max-width: 768px) {
+        .social-links {
+            justify-content: center;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            margin: 0 1rem;  /* 좌우 간격 균등하게 조정 */
+        }
+        
+        .social-links a:last-child {
+            margin-right: 0;  /* 마지막 아이템 오른쪽 마진 제거 */
+        }
+    }
+
+    /* 기존 미디어쿼리 수정 */
+    @media (max-width: 991px) {  /* lg 브레이크포인트 */
+        .hero-title {
+            font-size: 1.8rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            display: block !important; /* 강제 표시 */
+        }
+        
+        .lawyer-name {
+            font-size: 2.8rem;
+        }
+    }
+
+    @media (max-width: 768px) {  /* md 브레이크포인트 */
+        .hero-subtitle {
+            font-size: 1.3rem;
+        }
     }

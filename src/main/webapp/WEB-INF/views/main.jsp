@@ -113,7 +113,7 @@
                             ${heroSection.lawyerName}
                         </h1>
                         <div class="subtitle-wrapper">
-                            <p class="lead text-white hero-subtitle d-none d-md-block">
+                            <p class="lead text-white hero-subtitle">
                                 ${heroSection.subtitle}
                             </p>
                         </div>
@@ -579,144 +579,47 @@
 
                 <!-- 전문분야 카드 -->
                 <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="expertise-card h-100">
-                            <div class="text-center mb-5">
-                                <div class="icon-circle mb-4">
-                                    <img src="/images/금전.png" alt="금전 소송">
-                                </div>
-                                <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">금전 소송</h4>
-                                <!-- 진행 사건 수 추 -->
-                                <div class="case-count mb-4">
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <span class="count-number" data-count="300" style="display: inline-block;">0</span>
-                                        <span class="count-number"> +</span>
+                    <c:forEach items="${expertiseList}" var="expertise">
+                        <div class="col-md-4">
+                            <div class="expertise-card h-100">
+                                <div class="text-center mb-5">
+                                    <div class="icon-circle mb-4">
+                                        <img src="${expertise.iconPath}" alt="${expertise.mainTitle}">
                                     </div>
-                                    <span class="count-text text-white-50 d-block">건 이상의 법률자문</span>
+                                    <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">
+                                        ${expertise.mainTitle}
+                                    </h4>
+                                    
+                                    <c:if test="${expertise.caseCount != null}">
+                                        <div class="case-count mb-4">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <span class="count-number" data-count="${expertise.caseCount}" 
+                                                    style="display: inline-block;">0</span>
+                                                <span class="count-number"> +</span>
+                                            </div>
+                                            <span class="count-text text-white-50 d-block">건 이상의 법률자문</span>
+                                        </div>
+                                    </c:if>
                                 </div>
 
+                                <ul class="list-unstyled text-center" style="margin: 0 auto; max-width: 80%;">
+                                    <c:forEach items="${expertiseDetails[expertise.id]}" var="detail">
+                                        <li class="mb-4 text-white">
+                                            <div class="expertise-item">
+                                                <span style="font-size: 1.2rem; opacity: 0.9;">
+                                                    ${detail.subtitle}
+                                                </span>
+                                                <small class="d-block text-white-50" style="font-size: 0.8rem;">
+                                                    ${detail.subtitle2}
+                                                </small>
+                                            </div>
+                                        </li>
+                                    </c:forEach>
+                                </ul>
                             </div>
-                            <ul class="list-unstyled text-center" style="margin: 0 auto; max-width: 80%;">
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">채권 추심</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">체계적 진행</small>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">여금 반환</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전략적 해결</small>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">투자금 회수</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">맞춤형 접근</small>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">투자금 분쟁</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전문적 처리</small>
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
-                    </div>
-                    
-                    <!-- 손해배상 청구 카드 -->
-                    <div class="col-md-4">
-                        <div class="expertise-card h-100">
-                            <div class="text-center mb-5">
-                                <div class="icon-circle mb-4">
-                                    <img src="/images/손해배상.png" alt="손해배상 청구">
-                                </div>
-                                <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">손해배상 청구</h4>
-                                <!-- 진행 사건 수 추가 -->
-                                <div class="case-count mb-4">
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <span class="count-number" data-count="200" style="display: inline-block;">0</span>
-                                        <span class="count-number"> +</span>
-                                    </div>
-                                    <span class="count-text text-white-50 d-block">건 이상의 법률자문</span>
-                                </div>
-
-                            </div>
-                            <ul class="list-unstyled text-center" style="margin: 0 auto; max-width: 80%;">
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">계약 분쟁</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전문 자문 제공</small>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">교통사고</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">체계적 해결</small>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">의료 사고</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전문적 접근</small>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">명예훼손</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">신중한 처리</small>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="expertise-card h-100">
-                            <div class="text-center mb-5">
-                                <div class="icon-circle mb-4">
-                                    <img src="/images/부동산.png" alt="부동산 소송">
-                                </div>
-                                <h4 class="text-white mb-4" style="font-size: 1.8rem; font-weight: 600;">부동산 소송</h4>
-                                <!-- 진행 사건 수 추가 -->
-                                <div class="case-count mb-4">
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <span class="count-number" data-count="300" style="display: inline-block;">0</span>
-                                        <span class="count-number"> +</span>
-                                    </div>
-                                    <span class="count-text text-white-50 d-block">건 이상의 법률자문</span>
-                                </div>
-
-                            </div>
-                            <ul class="list-unstyled text-center" style="margin: 0 auto; max-width: 80%;">
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">임대차 분쟁</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">체계적 해결</small>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">도급 소송</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전문적 대응</small>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">건축 분쟁</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">분석적 접근</small>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white">
-                                    <div class="expertise-item">
-                                        <span style="font-size: 1.2rem; opacity: 0.9;">재건축/재개발</span>
-                                        <small class="d-block text-white-50" style="font-size: 0.8rem;">전략적 자문</small>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    </c:forEach>
+                </div>
 
                     
 
@@ -729,24 +632,18 @@
                         </h3>
                         
                         <div class="faq-list">
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    법률상담은 어떤 방식으로 진행되나요?
-                                </div>
-                                <div class="faq-answer">
-                                    <p>초기 상담은 전화 또는 온라인으로 진행되며, 사건의 복잡성에 따라 대면 상담으로 전환될 수 있습니다. 상담 시에는 관련 서류를 준비해 주시면 더욱 정확한 상담이 가능합니다.</p>
-                                </div>
-                            </div>
-                            
-                            <!-- 추가 FAQ 항목들 -->
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    법률비용은 어떻게 산정되나요?
-                                </div>
-                                <div class="faq-answer">
-                                    <p>사건의 난이도, 소요시간, 중요도 등을 종합적으로 고려하여 책정됩니다. 정확한 비용은 초기 상담 후 안내해 드립니다.</p>
-                                </div>
-                            </div>
+                            <c:forEach items="${faqs}" var="faq">
+                                <c:if test="${faq.isActive}">
+                                    <div class="faq-item">
+                                        <div class="faq-question">
+                                            ${faq.question}
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>${faq.answer}</p>
+                                        </div>
+                                    </div>
+                                </c:if>
+                            </c:forEach>
                         </div>
                     </div>
                 </section>

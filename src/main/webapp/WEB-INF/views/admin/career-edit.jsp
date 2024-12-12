@@ -107,11 +107,9 @@
 
         .nav-links {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 5px;
-            border-radius: 30px;
+            padding: 15px;
             margin-bottom: 30px;
             gap: 5px;
         }
@@ -119,12 +117,12 @@
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            padding: 8px 20px;
+            padding: 8px 15px;
             border-radius: 25px;
-            flex: 1;
             text-align: center;
             transition: all 0.3s ease;
             white-space: nowrap;
+            font-size: 0.9rem;
         }
 
         .nav-links a:not(.home-btn) {
@@ -204,15 +202,45 @@
             border-color: #1a237e;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
+            .nav-links a {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 992px) {
             .nav-links {
-                flex-wrap: wrap;
                 gap: 8px;
-                padding: 8px;
+                padding: 10px;
             }
             
             .nav-links a {
-                min-width: calc(50% - 4px);
+                flex: 0 0 calc(33.333% - 8px);
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links a {
+                flex: 0 0 calc(50% - 4px);
+                padding: 8px 10px;
+            }
+            
+            .home-btn {
+                flex: 0 0 100% !important;
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                padding: 5px;
+            }
+            
+            .nav-links a {
+                font-size: 0.75rem;
+                padding: 6px 8px;
             }
         }
 
@@ -336,6 +364,7 @@
             <a href="/admin/hero-section">메인화면</a>
             <a href="/admin/lawyer-profile">프로필 섹션</a>
             <a href="/admin/video-section">비디오 섹션</a>
+            <a href="/admin/faqs">FAQ 관리</a>
             <a href="/admin/success-cases">성공사례 섹션</a>
             <a href="/admin/reviews">고객후기 섹션</a>
             <a href="/admin/legal-guides">법률가이드 섹션</a>
@@ -807,7 +836,7 @@
                 const iconClass = this.dataset.icon;
                 document.getElementById('editIconInput').value = iconClass;
                 
-                // 선��된 아이콘 표시
+                // 선택된 아이콘 표시
                 document.querySelectorAll('#editCategoryModal .icon-item').forEach(i => i.classList.remove('selected'));
                 this.classList.add('selected');
                 

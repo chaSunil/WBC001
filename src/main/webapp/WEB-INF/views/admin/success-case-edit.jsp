@@ -237,12 +237,16 @@
                 <i class="fas fa-video"></i>
                 <span>비디오 섹션</span>
             </a>
+            <a href="/admin/faqs">
+                <i class="fas fa-question-circle"></i>
+                <span>FAQ 관리</span>
+            </a>
             <a href="/admin/success-cases" class="active">
                 <i class="fas fa-trophy"></i>
                 <span>성공사례 섹션</span>
             </a>
             <a href="/admin/reviews">
-                <i class="fas fa-comments"></i>
+                <i class="fas fa-star"></i>
                 <span>고객후기 섹션</span>
             </a>
             <a href="/admin/legal-guides">
