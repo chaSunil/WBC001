@@ -5,7 +5,7 @@ https://www.youtube.com/watch?v=Izi_KcemAw8
 
 사이트 시연 동영상 (모바일)
 
-https://www.youtube.com/watch?v=Izi_KcemAw8
+https://youtu.be/glU0yfozY4o
 
 # 관리자 페이지
 
