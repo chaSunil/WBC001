@@ -1,8 +1,11 @@
 # 사이트 시연
-사이트 간단하게 시연하는 영상입니다~
+사이트 시연 동영상 (웹페이지)
 
 https://www.youtube.com/watch?v=Izi_KcemAw8
 
+사이트 시연 동영상 (모바일)
+
+https://www.youtube.com/watch?v=Izi_KcemAw8
 
 # 관리자 페이지
 
